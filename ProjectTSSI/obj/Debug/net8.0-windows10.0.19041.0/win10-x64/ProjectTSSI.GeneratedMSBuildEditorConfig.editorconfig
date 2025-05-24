@@ -1,0 +1,98 @@
+is_global = true
+build_property.TargetFramework = net8.0-windows10.0.19041.0
+build_property.TargetPlatformMinVersion = 10.0.17763.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ProjectTSSI
+build_property.ProjectDir = C:\Users\vielm\OneDrive\Documentos\ProjectAITasks\ProjectTSSI\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTAotOptimizerEnabled = true
+build_property.CsWinRTAotExportsEnabled = 
+build_property.CsWinRTRcwFactoryFallbackGeneratorForceOptIn = 
+build_property.CsWinRTRcwFactoryFallbackGeneratorForceOptOut = 
+build_property.CsWinRTCcwLookupTableGeneratorEnabled = true
+build_property.CsWinRTMergeReferencedActivationFactories = 
+build_property.CsWinRTAotWarningLevel = 
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Platforms/Tizen/EjemploPagina.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Platforms.Tizen.EjemploPagina.xaml
+build_metadata.AdditionalFiles.TargetPath = Platforms\Tizen\EjemploPagina.xaml
+build_metadata.AdditionalFiles.RelativePath = Platforms\Tizen\EjemploPagina.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Shared/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Shared.App.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Shared\App.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Shared\App.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Shared/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Shared.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Shared\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Shared\MainPage.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/LoginWS.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.LoginWS.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\LoginWS.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\LoginWS.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/PrincipalPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.PrincipalPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\PrincipalPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\PrincipalPage.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/PrincipalPageInProgress.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.PrincipalPageInProgress.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\PrincipalPageInProgress.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\PrincipalPageInProgress.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/PrincipalPageTask.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.PrincipalPageTask.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\PrincipalPageTask.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\PrincipalPageTask.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/RegisterPart1.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.RegisterPart1.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\RegisterPart1.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\RegisterPart1.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/RegisterPart2.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.RegisterPart2.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\RegisterPart2.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\RegisterPart2.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/RegisterPart3.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.RegisterPart3.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\RegisterPart3.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\RegisterPart3.xaml
+
+[C:/Users/vielm/OneDrive/Documentos/ProjectAITasks/ProjectTSSI/Views/Windows/RegisterWS.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ProjectTSSI.Views.Windows.RegisterWS.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Windows\RegisterWS.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Windows\RegisterWS.xaml

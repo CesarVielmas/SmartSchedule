@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProjectTSSI"
+             x:Class="ProjectTSSI.PrincipalPage"
+             NavigationPage.HasNavigationBar="False">
+            
+            <Grid RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.065*" />
+                    <ColumnDefinition Width="0.95*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout x:Name="PrincipalHeader" Grid.Column="0">
+                    <StackLayout x:Name="ContainerProfileImage" AutomationId="ContainerProfileImage" HorizontalOptions="FillAndExpand" >
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <!-- Define las columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+        
+                                <!-- Imagen centrada -->
+                                <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                      <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Image x:Name="ImageProfileSelect" Source="icon_user_unselect.png" HorizontalOptions="Center" VerticalOptions="Center"/> 
+                                      </Grid>
+                                </StackLayout>
+                                
+                                </Grid>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClickedIcons" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout x:Name="ContainerTaskImage" AutomationId="ContainerTaskImage" HorizontalOptions="FillAndExpand" BackgroundColor="#efeff4" Margin="0,0,0,8" >
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <!-- Define las columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <!-- Barra vertical con ancho fijo -->
+                                    <ColumnDefinition Width="6" />
+                                    <!-- Espacio para la imagen -->
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+        
+                                <Border 
+                                        x:Name="BorderTaskSelect"
+                                        Grid.Column="0"
+                                        IsVisible="True"
+                                        Stroke="#48588c"
+                                        StrokeThickness="0"
+                                        BackgroundColor="#48588c"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="0,10,0,10" />
+                                    </Border.StrokeShape>
+                                </Border>
+        
+                                <!-- Imagen centrada -->
+                                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Image 
+                                        x:Name="ImageTaskSelect"
+                                        Source="icon_navebar_task_select.png"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        />
+                                </Grid>
+                                    
+                                </StackLayout>
+                                
+                                </Grid>
+                         <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClickedIcons" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout x:Name="ContainerStadisticsImage" AutomationId="ContainerStadisticsImage" HorizontalOptions="FillAndExpand" Margin="0,0,0,8" >
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <!-- Define las columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <!-- Barra vertical con ancho fijo -->
+                                    <ColumnDefinition Width="6" />
+                                    <!-- Espacio para la imagen -->
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+        
+                                <Border 
+                                        x:Name="BorderStadisticsSelect"
+                                        Grid.Column="0"
+                                        IsVisible="False"
+                                        Stroke="#48588c"
+                                        StrokeThickness="0"
+                                        BackgroundColor="#48588c"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="0,10,0,10" />
+                                    </Border.StrokeShape>
+                                </Border>
+        
+                                <!-- Imagen centrada -->
+                                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Image 
+                                        x:Name="ImageStadisticsSelect"
+                                        Source="icon_static_unselect.png"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                         />
+                                </Grid> 
+                                    
+                                </StackLayout>
+                                
+                                </Grid>
+                         <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClickedIcons" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout x:Name="ContainerComentsImage" AutomationId="ContainerComentsImage" HorizontalOptions="FillAndExpand" Margin="0,0,0,8" >
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <!-- Define las columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <!-- Barra vertical con ancho fijo -->
+                                    <ColumnDefinition Width="6" />
+                                    <!-- Espacio para la imagen -->
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+        
+                                <Border 
+                                        x:Name="BorderCommentsSelect"
+                                        Grid.Column="0"
+                                        IsVisible="False"
+                                        Stroke="#48588c"
+                                        StrokeThickness="0"
+                                        BackgroundColor="#48588c"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="0,10,0,10" />
+                                    </Border.StrokeShape>
+                                </Border>
+        
+                                <!-- Imagen centrada -->
+                                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Image 
+                                        x:Name="ImageComentsSelect"
+                                        Source="icon_comment_unselect.png"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+                                </Grid>
+                                    
+                                </StackLayout>
+                                
+                                </Grid>
+                         <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClickedIcons" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout x:Name="ContainerAlarmsImage" AutomationId="ContainerAlarmsImage" HorizontalOptions="FillAndExpand" Margin="0,0,0,8" >
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <!-- Define las columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <!-- Barra vertical con ancho fijo -->
+                                    <ColumnDefinition Width="6" />
+                                    <!-- Espacio para la imagen -->
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+        
+                                <Border 
+                                        x:Name="BorderAlarmSelect"
+                                        Grid.Column="0"
+                                        IsVisible="False"
+                                        Stroke="#48588c"
+                                        StrokeThickness="0"
+                                        BackgroundColor="#48588c"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="0,10,0,10" />
+                                    </Border.StrokeShape>
+                                </Border>
+        
+                                <!-- Imagen centrada -->
+                                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Image 
+                                        x:Name="ImageAlarmSelect"
+                                        Source="icon_alarm_unselect.png"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                       />
+                                    </Grid>
+                                    
+                                </StackLayout>
+                                
+                                </Grid>
+                         <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClickedIcons" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout x:Name="ContainerConfigurationsImage" AutomationId="ContainerConfigurationsImage" HorizontalOptions="FillAndExpand" Margin="0,0,0,8">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <!-- Define las columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <!-- Barra vertical con ancho fijo -->
+                                    <ColumnDefinition Width="6" />
+                                    <!-- Espacio para la imagen -->
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+        
+                                <Border 
+                                        x:Name="BorderConfigSelect"
+                                        Grid.Column="0"
+                                        IsVisible="False"
+                                        Stroke="#48588c"
+                                        StrokeThickness="0"
+                                        BackgroundColor="#48588c"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="0,10,0,10" />
+                                    </Border.StrokeShape>
+                                </Border>
+        
+                                <!-- Imagen centrada -->
+                                <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Image 
+                                        x:Name="ImageConfigSelect"
+                                        Source="icon_config_unselect.png"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        />
+                                </Grid>
+                                </StackLayout>
+                                
+                                </Grid>
+                         <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClickedIcons" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <StackLayout x:Name="ContainerExpandImage" AutomationId="ContainerExpandImage" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,8">
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <!-- Define las columnas -->
+                                <Grid.ColumnDefinitions>
+                                    <!-- Espacio para la imagen -->
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+        
+                                <!-- Imagen centrada -->
+                                <StackLayout Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                        <Image 
+                                        x:Name="ImageExpandSelect"
+                                        Source="icon_expand_unselect.png"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+                                    </Grid>
+                                    
+                                </StackLayout>
+                                
+                                </Grid>
+                         <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnClickedIcons" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+                <AbsoluteLayout x:Name="PrincipalContent" Grid.Column="1" BackgroundColor="#e3e3e5" >
+                
+                </AbsoluteLayout>
+                <AbsoluteLayout x:Name = "EditTaskPage" Grid.Column="0" Grid.ColumnSpan="2" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="White">
+                    <!-- Título o encabezado -->
+    <Label Text="Editar Tarea"
+           FontSize="24"
+           HorizontalOptions="Center"
+           VerticalOptions="Start"
+           AbsoluteLayout.LayoutBounds="0.5, 0.05, 0.9, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+
+    <!-- Campo Nombre -->
+    <Label Text="Nombre"
+           FontSize="18"
+           VerticalOptions="Start"
+           AbsoluteLayout.LayoutBounds="0.1, 0.15, 0.3, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+    <Entry x:Name="EntryNombre" 
+           FontSize="18"
+           Placeholder="Ingrese el nombre"
+           AbsoluteLayout.LayoutBounds="0.5, 0.15, 0.8, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+
+    <!-- Campo Tipo -->
+    <Label Text="Tipo"
+           FontSize="18"
+           VerticalOptions="Start"
+           AbsoluteLayout.LayoutBounds="0.1, 0.25, 0.3, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+    <Entry x:Name="EntryTipo"
+           FontSize="18"
+           Placeholder="Ingrese el tipo"
+           AbsoluteLayout.LayoutBounds="0.5, 0.25, 0.8, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+
+    <!-- Campo Prioridad -->
+    <Label Text="Prioridad"
+           FontSize="18"
+           VerticalOptions="Start"
+           AbsoluteLayout.LayoutBounds="0.1, 0.35, 0.3, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+    <Entry x:Name="EntryPrioridad"
+           FontSize="18"
+           Keyboard="Numeric"
+           Placeholder="Ingrese la prioridad"
+           AbsoluteLayout.LayoutBounds="0.5, 0.35, 0.8, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+
+    <!-- Campo Fecha -->
+    <Label Text="Fecha"
+           FontSize="18"
+           VerticalOptions="Start"
+           AbsoluteLayout.LayoutBounds="0.1, 0.45, 0.3, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+    <Entry x:Name="EntryFecha"
+           FontSize="18"
+           Placeholder="Ingrese la fecha"
+           AbsoluteLayout.LayoutBounds="0.5, 0.45, 0.8, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+
+    <!-- Campo QLearningPrioridad (Solo Lectura) -->
+    <Label Text="Q-Learning Prioridad"
+           FontSize="18"
+           VerticalOptions="Start"
+           AbsoluteLayout.LayoutBounds="0.1, 0.55, 0.3, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+    <Entry x:Name="EntryQLearningPrioridad"
+           FontSize="18"
+           IsReadOnly="True"
+           Placeholder="No editable"
+           AbsoluteLayout.LayoutBounds="0.5, 0.55, 0.8, AutoSize"
+           AbsoluteLayout.LayoutFlags="All" />
+
+    <!-- Botón Guardar -->
+    <Button Text="Guardar"
+            FontSize="18"
+            BackgroundColor="Green"
+            TextColor="White"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            AbsoluteLayout.LayoutBounds="0.3, 0.75, 0.35, AutoSize"
+            AbsoluteLayout.LayoutFlags="All"
+            Clicked="OnSaveClicked" />
+
+    <!-- Botón Cancelar -->
+    <Button Text="Cancelar"
+            FontSize="18"
+            BackgroundColor="Red"
+            TextColor="White"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            AbsoluteLayout.LayoutBounds="0.7, 0.75, 0.35, AutoSize"
+            AbsoluteLayout.LayoutFlags="All"
+            Clicked="OnCancelClicked" />
+                </AbsoluteLayout>
+            </Grid>
+
+</ContentPage>

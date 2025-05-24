@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Content Include="Resources\Images\facebook_icon.png" />
+    <Content Include="Resources\Images\github_icon.png" />
+    <Content Include="Resources\Images\google_icon.png" />
+    <Content Include="Resources\Images\login_image_one.png" />
+    <Content Include="Resources\Images\login_image_three.png" />
+    <Content Include="Resources\Images\login_image_two.png" />
+    <Content Include="Resources\Images\password_icon_active.png" />
+    <Content Include="Resources\Images\password_icon_inactive.png" />
+    <Content Include="Resources\Images\second_background_login.png" />
+    <Content Include="Resources\Images\twitter_icon.png" />
+    <Content Include="Resources\Images\user_icon_active.png" />
+    <Content Include="Resources\Images\user_icon_inactive.png" />
+    <Content Include="C:\Users\vielm\.nuget\packages\microsoft.web.webview2\1.0.2651.64\build\\..\runtimes\win-x64\native\WebView2Loader.dll" />
+    <Content Include="Resources\Raw\AboutAssets.txt" />
+  </ItemGroup>
+</Project>

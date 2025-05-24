@@ -1,0 +1,39 @@
+<StackLayout xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                        <Label Text="Primer Paso" Style="{StaticResource SubttitleLogin}" TextColor="#979eb3" Margin="0,15,0,0" />
+                        <Label Text="INFORMACION PERSONAL" Style="{StaticResource TittleLogin}" TextColor="#707789" Margin="0,2,0,3" />
+                        <Label Text="En esta sección, te pedimos que proporciones algunos datos básicos sobre ti esta información nos ayudará a personalizar tu experiencia de manera efectiva"  Style="{StaticResource SubttitleLogin}" Margin="0,0,0,10" Padding="20,0,20,0" />
+                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
+                            <AbsoluteLayout x:Name="ErrorName" HeightRequest="35"> 
+                        
+                            </AbsoluteLayout>
+                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
+                                <Entry x:Name="entryName" Placeholder="Nombre Completo" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding RegisterNameText}" Style="{StaticResource PlaceHolderLogin}" />
+                            </Frame>
+                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
+                                <Image x:Name="iconName" Source="icon_name_innactive.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
+                            </AbsoluteLayout>
+                        </Grid>
+                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
+                            <AbsoluteLayout x:Name="ErrorPathernal" HeightRequest="35">
+
+                            </AbsoluteLayout>
+                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
+                                <Entry x:Name="entryPathernal" Placeholder="Apellido Paterno" HorizontalOptions="FillAndExpand" Text="{Binding RegisterFatherNameText}" VerticalOptions="Center" Style="{StaticResource PlaceHolderLogin}" />
+                            </Frame>
+                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
+                                <Image x:Name="iconPathernal" Source="icon_father_name_innactive.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
+                            </AbsoluteLayout>
+                        </Grid>
+                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
+                            <AbsoluteLayout x:Name="ErrorMaternal" HeightRequest="35"> 
+                        
+                            </AbsoluteLayout>
+                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
+                                <Entry x:Name="entryMaternal" Placeholder="Apellido Materno" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding RegisterMotherNameText}" Style="{StaticResource PlaceHolderLogin}" />
+                            </Frame>
+                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
+                                <Image x:Name="iconMaternal" Source="icon_mother_name_innactive.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
+                            </AbsoluteLayout>
+                        </Grid>
+</StackLayout>

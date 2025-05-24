@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\dotnet_bot@3x.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\dotnet_bot@2x.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\dotnet_bot.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_father_name_active.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\login_image_two.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\next_icon_color.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\login_image_one.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_register_three_second.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\login_image_three.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_mother_name_innactive.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_register_two_first.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\github_icon.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\confirm_password_icon_innactive.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\facebook_icon.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\second_background_login.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\next_icon_white.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\password_icon_active.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_register_two_second.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_register_three_first.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_register_one_first.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\twitter_icon.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\confirm_password_icon_active.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_name_innactive.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\back_icon_white.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_name_active.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\user_icon_inactive.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_father_name_innactive.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_mother_name_active.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\google_icon.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\back_icon_color.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\user_icon_active.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\loader_principal_page.gif" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\password_icon_inactive.png" />
+    <BundleResource Include="C:\Users\vielm\Downloads\ProjectTSSI\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\icon_register_one_second.png" />
+  </ItemGroup>
+</Project>

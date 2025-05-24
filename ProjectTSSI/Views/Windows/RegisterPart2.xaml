@@ -1,0 +1,39 @@
+<StackLayout xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                        <Label Text="Segundo Paso" Style="{StaticResource SubttitleLogin}" TextColor="#979eb3" Margin="0,15,0,0" />
+                        <Label Text="INFORMACION DE CONTACTO" Style="{StaticResource TittleLogin}" TextColor="#707789" Margin="0,2,0,3" />
+                        <Label Text="En esta sección, te pedimos que proporciones tus datos de contacto esta información es crucial para crear su cuenta y acceder a ella"  Style="{StaticResource SubttitleLogin}" Margin="0,0,0,10" Padding="20,0,20,0" />
+                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
+                            <AbsoluteLayout x:Name="ErrorMail" HeightRequest="35"> 
+                        
+                            </AbsoluteLayout>
+                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
+                                <Entry x:Name="entryMail" Placeholder="Correo Electronico" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding RegisterMailText}" Style="{StaticResource PlaceHolderLogin}" />
+                            </Frame>
+                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
+                                <Image x:Name="iconMail" Source="user_icon_inactive.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
+                            </AbsoluteLayout>
+                        </Grid>
+                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
+                            <AbsoluteLayout x:Name="ErrorPassword" HeightRequest="35">
+
+                            </AbsoluteLayout>
+                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
+                                <Entry x:Name="entryPassword" Placeholder="Contraseña" HorizontalOptions="FillAndExpand" Text="{Binding RegisterPasswordText}" IsPassword="True" VerticalOptions="Center" Style="{StaticResource PlaceHolderLogin}" />
+                            </Frame>
+                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
+                                <Image x:Name="iconPassword" Source="password_icon_inactive.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
+                            </AbsoluteLayout>
+                        </Grid>
+                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
+                            <AbsoluteLayout x:Name="ErrorConfirmPassword" HeightRequest="35"> 
+                        
+                            </AbsoluteLayout>
+                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
+                                <Entry x:Name="entryConfirmPassword" Placeholder="Confirmar Contraseña" HorizontalOptions="FillAndExpand" IsPassword="True" VerticalOptions="Center" Text="{Binding RegisterConfirmPasswordText}" Style="{StaticResource PlaceHolderLogin}" />
+                            </Frame>
+                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
+                                <Image x:Name="iconConfirmPassword" Source="confirm_password_icon_innactive.png"  WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
+                            </AbsoluteLayout>
+                        </Grid>
+</StackLayout>

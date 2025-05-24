@@ -1,0 +1,710 @@
+<StackLayout    Padding="10"
+                xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                <StackLayout x:Name="HeaderPart" Margin="10">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition Width="0.3*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BackgroundColor="White" Stroke="Transparent" StrokeThickness="0" Margin="10,0,0,0" >
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10,10,10,10" />
+                        </Border.StrokeShape>
+                          <StackLayout Grid.Column="0" BackgroundColor="White" Margin="0,0,0,0">
+                    <StackLayout x:Name="HeaderViewTop">
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.5*" />
+                         </Grid.ColumnDefinitions>
+                            <StackLayout x:Name="StackLayoutProgressBar" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,5,0,0" Padding="5">
+                                <ProgressBar
+                                        x:Name="ProgressBar"
+                                        Progress="0.5"
+                                        BackgroundColor="#c0c0c0"
+                                        ProgressColor="#9dafec"
+                                        HeightRequest="10"
+                                        HorizontalOptions="Center" />
+                                <Label 
+                                        x:Name="ProgressBarText"
+                                        Text="50% De Tareas Completadas"
+                                        Margin="0,5,0,0"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#c0c0c0"
+                                        
+                                          />
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,2,0,0" Padding="3">
+                                <Label 
+                                        x:Name="MostImportantTextTittle"
+                                        Text="Tareas Pendientes"
+                                        Margin="0,0,0,0"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#4e609b"
+                                        
+                                          />
+                                 <Label 
+                                        x:Name="MostImportantTextSubTittle"
+                                        Text="Las Tareas Mas Importantes Clasificadas"
+                                        Margin="1,0,0,0"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#c0c0c0"
+                                        
+                                          />
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                         </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" BackgroundColor="#b06f6f" Stroke="Transparent" StrokeThickness="0" Margin="10,0,0,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5,5,5,5" />
+                                </Border.StrokeShape>
+                                <StackLayout Padding="20">
+                                <Label x:Name="TittleMostImportantTask1" Text="Terminar PIA De Historia" Style="{StaticResource SubttitleLogin}" TextColor="White" Margin="0,0,3,0" />
+                                <Label x:Name="TittleMostImportantTask2" Text="Creado El 20 De Noviembre Del 2020" Style="{StaticResource SubttitleLogin}" TextColor="White"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*" />
+                                        <ColumnDefinition Width="0.5*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0">
+                                        <Image 
+                                                x:Name="ImageMostImportantTask1"
+                                                Source="icon_student.png" 
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"
+                                                WidthRequest="20"
+                                                HeightRequest="20"
+                                                Margin="10,0,0,0" />
+                                    </StackLayout>
+
+                                    <AbsoluteLayout Grid.Column="1" Margin="15,0,0,0">
+                                            <Image 
+                                                Source="icon_edit.png" 
+                                                AbsoluteLayout.LayoutBounds="0.5, 0, 30, 30" 
+                                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                Margin="7,0,0,0" />
+                                            <Image 
+                                                Source="icon_delete.png" 
+                                                AbsoluteLayout.LayoutBounds="1, 0, 30, 30" 
+                                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                Margin="7,0,10,0" />
+                                    </AbsoluteLayout>
+                                </Grid>
+                                </StackLayout>
+                            </Border>
+
+                            <!-- Segundo Border -->
+                            <Border Grid.Column="1" BackgroundColor="#9cafec" Stroke="Transparent" StrokeThickness="0" Margin="10,0,0,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5,5,5,5" />
+                                </Border.StrokeShape>
+                                <StackLayout Padding="20">
+                                <Label x:Name="TittleMostImportantTask3" Text="Terminar Trabajo Pendiente" Style="{StaticResource SubttitleLogin}" TextColor="White" Margin="0,0,3,0" />
+                                <Label x:Name="TittleMostImportantTask4" Text="Creado El 15 De Noviembre Del 2020" Style="{StaticResource SubttitleLogin}" TextColor="White"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*" />
+                                        <ColumnDefinition Width="0.5*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0">
+                                        <Image 
+                                                x:Name="ImageMostImportantTask2"
+                                                Source="icon_job.png" 
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"
+                                                WidthRequest="20"
+                                                HeightRequest="20"
+                                                Margin="10,0,0,0" />
+                                    </StackLayout>
+
+                                    <AbsoluteLayout Grid.Column="1" Margin="15,0,0,0">
+                                            <Image 
+                                                Source="icon_edit.png" 
+                                                AbsoluteLayout.LayoutBounds="0.5, 0, 30, 30" 
+                                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                Margin="7,0,0,0" />
+                                            <Image 
+                                                Source="icon_delete.png" 
+                                                AbsoluteLayout.LayoutBounds="1, 0, 30, 30" 
+                                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                Margin="7,0,10,0" />
+                                    </AbsoluteLayout>
+                                </Grid>
+                                </StackLayout>
+                            </Border>
+
+                            <!-- Tercer Border -->
+                            <Border Grid.Column="2" BackgroundColor="#7ac080" Stroke="Transparent" StrokeThickness="0" Margin="10,0,10,0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="5,5,5,5" />
+                                </Border.StrokeShape>
+                                <StackLayout Padding="20">
+                                <Label x:Name="TittleMostImportantTask5" Text="Realizar Calistenia" Style="{StaticResource SubttitleLogin}" TextColor="White" Margin="0,0,3,0" />
+                                <Label x:Name="TittleMostImportantTask6" Text="Creado El 10 De Noviembre Del 2020" Style="{StaticResource SubttitleLogin}" TextColor="White"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*" />
+                                        <ColumnDefinition Width="0.5*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0">
+                                        <Image 
+                                                x:Name="ImageMostImportantTask3"
+                                                Source="icon_deport.png" 
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"
+                                                WidthRequest="20"
+                                                HeightRequest="20"
+                                                Margin="10,0,0,0" />
+                                    </StackLayout>
+
+                                    <AbsoluteLayout Grid.Column="1" Margin="15,0,0,0">
+                                            <Image 
+                                                Source="icon_edit.png" 
+                                                AbsoluteLayout.LayoutBounds="0.5, 0, 30, 30" 
+                                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                Margin="7,0,0,0" />
+                                            <Image 
+                                                Source="icon_delete.png" 
+                                                AbsoluteLayout.LayoutBounds="1, 0, 30, 30" 
+                                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                Margin="7,0,10,0" />
+                                    </AbsoluteLayout>
+                                </Grid>
+                                </StackLayout>
+                            </Border>
+                    </Grid>
+                    <StackLayout HorizontalOptions="FillAndExpand" Padding="18,0,18,0">
+                            <HorizontalStackLayout HorizontalOptions="End" Spacing="5">
+                                <!-- Label con texto -->
+                                <Label 
+                                        x:Name="TextExpandTask"
+                                        Text="Expandir Tareas" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Start" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#c0c0c0" />
+
+                                <!-- Imagen con icono -->
+                                <Image 
+                                        x:Name="ImageExpandTask"
+                                        Source="expand_icon.png" 
+                                        VerticalOptions="Start"
+                                        HorizontalOptions="Center" />
+                            </HorizontalStackLayout>
+                    </StackLayout>
+                </StackLayout>
+                </Border>
+                <Border Grid.Column="1" BackgroundColor="White" Margin="20,0,0,0" Stroke="Transparent" StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10,10,10,10" />
+                    </Border.StrokeShape>
+                    <StackLayout >
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="2">
+                                <Image 
+                                        x:Name="ImageTittleCompletedTask"
+                                        Source="icon_completed_task.png" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" />
+                                <Label 
+                                        x:Name="TextTittleCompletedTask"
+                                        Text="Tareas Completadas" 
+                                        VerticalOptions="Center" 
+                                        Padding="0,14,0,0"
+                                        HorizontalOptions="Start" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#4e609b" />
+
+                        </HorizontalStackLayout>
+                        <Border HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,3,10,0" BackgroundColor="#b06f6f">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10,10,10,10" />
+                            </Border.StrokeShape>
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0" VerticalOptions="FillAndExpand">
+                                        <!-- Contenedor para las imágenes y el contenido -->
+                                        <Grid VerticalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />    <!-- Labels -->
+                                                <ColumnDefinition Width="Auto" /> <!-- AbsoluteLayout -->
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Labels en el resto del espacio -->
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center" Spacing="5">
+                                                <Label 
+                                                        x:Name="TextTaskComplete1" 
+                                                        Text="Terminar PIA De Historia" 
+                                                        Style="{StaticResource SubttitleLogin}" 
+                                                        TextColor="White" 
+                                                        FontSize="13" 
+                                                        HorizontalTextAlignment="Start" 
+                                                        Margin="13,0,1,0" />
+                                                <Label 
+                                                        x:Name="TextTaskComplete2" 
+                                                        Text="Creada el 20 de noviembre del 2024" 
+                                                        Style="{StaticResource SubttitleLogin}" 
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Start" 
+                                                        FontSize="11" 
+                                                        Margin="13,1,0,0" />
+                                                </StackLayout>
+                                                <!-- AbsoluteLayout a la izquierda -->
+                                                <AbsoluteLayout 
+                                                        Grid.Column="1"
+                                                        WidthRequest="120" 
+                                                        HeightRequest="30" 
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="End"
+                                                        Margin="0,0,25,0">
+                                                <Image 
+                                                    x:Name="ImageTaskComplete1"
+                                                    Source="icon_student.png" 
+                                                    AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                <Image 
+                                                    x:Name="ImageTaskComplete2"
+                                                    Source="icon_edit.png" 
+                                                    AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                <Image 
+                                                    x:Name="ImageTaskComplete3"
+                                                    Source="icon_delete.png" 
+                                                    AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                </AbsoluteLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </Grid>
+                        </Border>
+                        <Border HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,3,10,0" BackgroundColor="#9cafec">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10,10,10,10" />
+                            </Border.StrokeShape>
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0" VerticalOptions="FillAndExpand">
+                                        <!-- Contenedor para las imágenes y el contenido -->
+                                        <Grid VerticalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />    <!-- Labels -->
+                                                <ColumnDefinition Width="Auto" /> <!-- AbsoluteLayout -->
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Labels en el resto del espacio -->
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center" Spacing="5">
+                                                <Label 
+                                                        x:Name="TextTaskComplete3" 
+                                                        Text="Hacer Limpieza En Casa" 
+                                                        Style="{StaticResource SubttitleLogin}" 
+                                                        TextColor="White" 
+                                                        FontSize="13" 
+                                                        HorizontalTextAlignment="Start" 
+                                                        Margin="13,0,1,0" />
+                                                <Label 
+                                                        x:Name="TextTaskComplete4" 
+                                                        Text="Creada el 7 de noviembre del 2024" 
+                                                        Style="{StaticResource SubttitleLogin}" 
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Start" 
+                                                        FontSize="11" 
+                                                        Margin="13,1,0,0" />
+                                                </StackLayout>
+                                                <!-- AbsoluteLayout a la izquierda -->
+                                                <AbsoluteLayout 
+                                                        Grid.Column="1"
+                                                        WidthRequest="120" 
+                                                        HeightRequest="30" 
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="End"
+                                                        Margin="0,0,25,0">
+                                                <Image 
+                                                    x:Name="ImageTaskComplete4"
+                                                    Source="icon_house.png" 
+                                                    AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                <Image 
+                                                    x:Name="ImageTaskComplete5"
+                                                    Source="icon_edit.png" 
+                                                    AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                <Image 
+                                                    x:Name="ImageTaskComplete6"
+                                                    Source="icon_delete.png" 
+                                                    AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                </AbsoluteLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </Grid>
+                        </Border>
+
+                        <Border HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10,3,10,0" BackgroundColor="#7ac080">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10,10,10,10" />
+                            </Border.StrokeShape>
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0" VerticalOptions="FillAndExpand">
+                                        <!-- Contenedor para las imágenes y el contenido -->
+                                        <Grid VerticalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />    <!-- Labels -->
+                                                <ColumnDefinition Width="Auto" /> <!-- AbsoluteLayout -->
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Labels en el resto del espacio -->
+                                            <StackLayout Grid.Column="0" VerticalOptions="Center" Spacing="5">
+                                                <Label 
+                                                        x:Name="TextTaskComplete5" 
+                                                        Text="Pasear Al Perro" 
+                                                        Style="{StaticResource SubttitleLogin}" 
+                                                        TextColor="White" 
+                                                        FontSize="13" 
+                                                        HorizontalTextAlignment="Start" 
+                                                        Margin="13,0,1,0" />
+                                                <Label 
+                                                        x:Name="TextTaskComplete6" 
+                                                        Text="Creada el 5 de noviembre del 2024" 
+                                                        Style="{StaticResource SubttitleLogin}" 
+                                                        TextColor="White" 
+                                                        HorizontalTextAlignment="Start" 
+                                                        FontSize="11" 
+                                                        Margin="13,1,0,0" />
+                                                </StackLayout>
+                                                <!-- AbsoluteLayout a la izquierda -->
+                                                <AbsoluteLayout 
+                                                        Grid.Column="1"
+                                                        WidthRequest="120" 
+                                                        HeightRequest="30" 
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="End"
+                                                        Margin="0,0,25,0">
+                                                <Image 
+                                                    x:Name="ImageTaskComplete7"
+                                                    Source="icon_house_out.png" 
+                                                    AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                <Image 
+                                                    x:Name="ImageTaskComplete8"
+                                                    Source="icon_edit.png" 
+                                                    AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                <Image 
+                                                    x:Name="ImageTaskComplete9"
+                                                    Source="icon_delete.png" 
+                                                    AbsoluteLayout.LayoutBounds="1, 0, AutoSize, AutoSize" 
+                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                    Margin="7,0,0,0" />
+                                                </AbsoluteLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </Grid>
+                        </Border>
+                        
+                        <HorizontalStackLayout HorizontalOptions="End" Spacing="5" Padding="15,0,15,0" Margin="0,5,0,0">
+                                <Label 
+                                        x:Name="TextExpandTaskCompleted"
+                                        Text="Expandir Tareas" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Start" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#c0c0c0" />
+
+                                <Image 
+                                        x:Name="ImageExpandTaskCompleted"
+                                        Source="expand_icon.png" 
+                                        VerticalOptions="Start"
+                                        HorizontalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                </Border>
+                </Grid>
+            </StackLayout>
+            <StackLayout x:Name="ContentPart" Margin="10">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.7*" />
+                    <ColumnDefinition Width="0.3*" />
+                </Grid.ColumnDefinitions>
+                 <Border
+                        Grid.Column="0" BackgroundColor="White"
+                        Stroke="Transparent"
+                        StrokeThickness="0"
+                        Padding="0"
+                        Margin="0,0,0,0">
+                <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10,10,10,10" />
+                </Border.StrokeShape>
+                <StackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="2">
+                                <Image 
+                                        x:Name="ImageTittleRecentTask"
+                                        Source="icon_recent_task.png" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" />
+                                <Label 
+                                        x:Name="TextTittleRecentTask"
+                                        Text="Tareas Recientes" 
+                                        VerticalOptions="Center" 
+                                        Padding="0,14,0,0"
+                                        HorizontalOptions="Start" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#4e609b" />
+
+                        </HorizontalStackLayout>
+                        <Frame x:Name="FrameRecentTask" CornerRadius="5"  BorderColor="White" BackgroundColor="White" Margin="10,0,10,0" Padding="85,0,0,0" >
+                            <Entry x:Name="entryRecentTask" Placeholder="Nombre De La Tarea Reciente" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource PlaceHolderLogin}" PlaceholderColor="#9CAABE" />
+                        </Frame>
+                        <BoxView Color="#e3e3e5" HeightRequest="2" HorizontalOptions="FillAndExpand" Margin="50,0,50,0" />
+                        <AbsoluteLayout WidthRequest="20" HorizontalOptions="Center">
+                            <Image x:Name="iconRecentTask" Source="icon_search.png" HeightRequest="15" WidthRequest="15" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="27, -40,20, 20" />
+                        </AbsoluteLayout>
+                        <ScrollView  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,0">
+                             <StackLayout x:Name="ContentTaskDinamic"
+                                            Orientation="Vertical"
+                                            HorizontalOptions="FillAndExpand" />
+                        </ScrollView>
+                </StackLayout>
+                </Border>
+
+                <Border
+                        Grid.Column="1" BackgroundColor="White"
+                        Stroke="Transparent"
+                        StrokeThickness="0"
+                        Padding="0"
+                        Margin="20,0,0,0">
+                <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10,10,10,10" />
+                </Border.StrokeShape>
+                <StackLayout >
+                    
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="5" Margin="0,12,0,7">
+                                <Image 
+                                        x:Name="ImageNewTask"
+                                        Source="icon_new_task.png" 
+                                        VerticalOptions="Start"
+                                        HorizontalOptions="Center" />
+                                <!-- Label con texto -->
+                                <Label 
+                                        x:Name="TextNewTask"
+                                        Text="Crear Nueva Tarea" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Start" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="#4e609b" />
+
+                                <!-- Imagen con icono -->
+                                
+                    </HorizontalStackLayout>
+                    <Label 
+                            x:Name="TextNameTask"
+                            Text="Nombre De La Tarea" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Start" 
+                            Style="{StaticResource SubttitleLogin}"
+                            TextColor="#c0c0c0"
+                            Margin="0,5,0,5"
+                            Padding="27,0,0,0" />
+                    <Frame x:Name="FrameNameTask" CornerRadius="5"  BorderColor="#e3e3e5" BackgroundColor="#e3e3e5" Margin="10,0,10,0" Padding="30,0,0,0" >
+                        <Entry x:Name="entryNameTask" Placeholder="Nombre De La Tarea" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Style="{StaticResource PlaceHolderLogin}" Text="{Binding NewTaskName}" PlaceholderColor="#9CAABE" />
+                    </Frame>
+                    <AbsoluteLayout WidthRequest="20" HorizontalOptions="Start">
+                        <Image x:Name="iconNameTask" Source="icon_placeholder_task.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="27, -40,20, 20" />
+                    </AbsoluteLayout>
+                    <Label 
+                            x:Name="TextTypeTask"
+                            Text="Tipo De Tarea" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Start" 
+                            Style="{StaticResource SubttitleLogin}"
+                            TextColor="#c0c0c0"
+                            Margin="0,5,0,5"
+                            Padding="27,0,0,0" />
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="25,0,25,0" Margin="0,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout AutomationId="OptionTypeTaskLayout1" x:Name="OptionTypeTaskLayout1" Grid.Column="0" BackgroundColor="#e3e3e5"  Margin="0,0,5,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                 <Label 
+                                        x:Name="OptionTypeTask1"
+                                        Text="Escuela" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="Black"/>
+                            </StackLayout>
+                            
+                        </StackLayout>
+                        <StackLayout AutomationId="OptionTypeTaskLayout2" x:Name="OptionTypeTaskLayout2" Grid.Column="1" BackgroundColor="#e3e3e5" Margin="0,0,5,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <Label 
+                                        x:Name="OptionTypeTask2"
+                                        Text="Trabajo" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="Black"/>
+                            </StackLayout>
+                             
+                        </StackLayout>
+                        <StackLayout AutomationId="OptionTypeTaskLayout3" x:Name="OptionTypeTaskLayout3" Grid.Column="2" BackgroundColor="#e3e3e5" Margin="5,0,0,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <Label 
+                                    x:Name="OptionTypeTask3"
+                                    Text="Deporte" 
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Center" 
+                                    Style="{StaticResource SubttitleLogin}"
+                                    TextColor="Black"/>
+                            </StackLayout>
+                             
+                        </StackLayout>
+                    </Grid>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="25,0,25,0" Margin="0,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout AutomationId="OptionTypeTaskLayout4" x:Name="OptionTypeTaskLayout4"  Grid.Column="0" BackgroundColor="#e3e3e5" Margin="0,0,5,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                            <Label 
+                                    x:Name="OptionTypeTask4"
+                                    Text="Hogar" 
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Center" 
+                                    Style="{StaticResource SubttitleLogin}"
+                                    TextColor="Black"/>
+                            </StackLayout>
+                             
+                        </StackLayout>
+                        <StackLayout AutomationId="OptionTypeTaskLayout5" x:Name="OptionTypeTaskLayout5" Grid.Column="1" BackgroundColor="#e3e3e5" Margin="0,0,5,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <Label 
+                                        x:Name="OptionTypeTask5"
+                                        Text="Compras" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="Black"/>
+                            </StackLayout>
+                             
+                        </StackLayout>
+                        <StackLayout AutomationId="OptionTypeTaskLayout6"  x:Name="OptionTypeTaskLayout6" Grid.Column="2" BackgroundColor="#e3e3e5" Margin="5,0,0,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <Label 
+                                    x:Name="OptionTypeTask6"
+                                    Text="Salidas" 
+                                    VerticalOptions="Center" 
+                                    HorizontalOptions="Center" 
+                                    Style="{StaticResource SubttitleLogin}"
+                                    TextColor="Black"/>
+                            </StackLayout>
+                             
+                        </StackLayout>
+                    </Grid>
+                    <Label 
+                            x:Name="TextClassificationTask"
+                            Text="Prioridad De Tarea" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Start" 
+                            Style="{StaticResource SubttitleLogin}"
+                            TextColor="#c0c0c0"
+                            Margin="0,5,0,5"
+                            Padding="27,0,0,0" />
+                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="25,0,25,0" Margin="0,5,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout x:Name="OptionClassificationTaskLayout1" Grid.Column="0" BackgroundColor="#e3e3e5" Margin="0,0,5,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Label 
+                                        x:Name="OptionClassificationTask1"
+                                        Text="Critica" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="Black"/>
+                            </StackLayout>
+                            
+                        </StackLayout>
+                        <StackLayout x:Name="OptionClassificationTaskLayout2" Grid.Column="1" BackgroundColor="#e3e3e5" Margin="0,0,5,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Label 
+                                        x:Name="OptionClassificationTask2"
+                                        Text="Relevante" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="Black"/>
+                            </StackLayout>
+                            
+                        </StackLayout>
+                        <StackLayout x:Name="OptionClassificationTaskLayout3" Grid.Column="2" BackgroundColor="#e3e3e5" Margin="5,0,0,0">
+                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Label 
+                                        x:Name="OptionClassificationTask3"
+                                        Text="Opcional" 
+                                        VerticalOptions="Center" 
+                                        HorizontalOptions="Center" 
+                                        Style="{StaticResource SubttitleLogin}"
+                                        TextColor="Black"/>
+                            </StackLayout>
+                            
+                        </StackLayout>
+                    </Grid>
+                    <Button 
+                            x:Name="ButtonCreateTask"
+                            Text="Agregar Tarea"
+                            Margin="15,3,15,3"
+                            Style="{StaticResource ButtonLogin}"
+                            BackgroundColor="#445285"/>
+                </StackLayout>
+                </Border>
+                </Grid>
+            </StackLayout>
+</StackLayout>
