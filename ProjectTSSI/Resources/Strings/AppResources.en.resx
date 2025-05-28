@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <data name="TittleLogin"
+          xml:space="preserve">
+        <value>LOGIN</value>
+    </data>
+    <data name="SecondTittleLogin"
+          xml:space="preserve">
+        <value>Welcome to SmartScheduler, your smart task manager</value>
+    </data>
+    <data name="MailLoginTittle"
+          xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="PasswordLoginTittle"
+          xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="EnterLoginTittle"
+          xml:space="preserve">
+        <value>LOGIN NOW</value>
+    </data>
+    <data name="OptionsLoginTittle"
+          xml:space="preserve">
+        <value>Login options</value>
+    </data>
+    <data name="RegisterLoginTittle"
+          xml:space="preserve">
+        <value>Don't have an account?</value>
+    </data>
+    <data name="WithOutAccountLoginTittle"
+          xml:space="preserve">
+        <value>Sign in without an account</value>
+    </data>
+</root>

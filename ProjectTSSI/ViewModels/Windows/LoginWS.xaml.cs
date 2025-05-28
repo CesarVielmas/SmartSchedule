@@ -9,6 +9,8 @@ using System.Text.RegularExpressions;
 using Microsoft.UI.Windowing;
 using Microsoft.Maui.Platform;
 using Microsoft.Maui.Layouts;
+using Microsoft.Maui.Devices;
+using ProjectTSSI.Handlers;
 
 
 namespace ProjectTSSI
@@ -21,6 +23,9 @@ namespace ProjectTSSI
             "login_image_two.png",
             "login_image_three.png"
         };
+        private double _screenWidth;
+        private double _screenHeight;
+        private double _screenDensity;
         private string loginUserText = "";
         private string loginPasswordText = "";
 
@@ -74,17 +79,154 @@ namespace ProjectTSSI
         public LoginWS()
         {
             InitializeComponent();
-            BindingContext = this; // Establecer el contexto de enlace
+            BindingContext = this;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            await SetConstants();
+            setSizesItems();
             ImagesAnimations();
             await FadeInAll();
-            SetWindowRestrictions();
         }
-        private async Task FadeInAll(){
+        private async Task SetConstants()
+        {
+            var displayInfor = DeviceDisplay.MainDisplayInfo;
+            _screenWidth = displayInfor.Width;
+            _screenHeight = displayInfor.Height;
+            _screenDensity = displayInfor.Density;
+        }
+        private void setSizesItems()
+        {
+            principalGrid.Padding = (int)((_screenWidth * 0.025) / _screenDensity);
+            StackLoginPart1.Padding = (int)((_screenHeight * 0.01) / _screenDensity);
+            StackLoginPart2.HeightRequest = (int)((_screenHeight * 0.4) / _screenDensity);
+            StackLoginPart2.WidthRequest = (int)((_screenWidth * 0.32) / _screenDensity);
+            tittleLoginText.FontSize = (int)((_screenHeight * 0.038) / _screenDensity);
+            tittleLoginText.Margin = new Thickness(0, (int)((_screenHeight * 0.02) / _screenDensity), 0, 0);
+            secondTittleLoginText.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
+            frameMailUser.HeightRequest = (int)((_screenHeight * 0.065) / _screenDensity);
+            frameMailUser.Padding = new Thickness((int)((_screenWidth * 0.04) / _screenDensity), 0, 0, 0);
+            gridMailUser.Margin = new Thickness(0, (int)((_screenHeight * 0.005) / _screenDensity), 0, 0);
+            entryUser.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
+            iconUser.HeightRequest = (int)((_screenHeight * 0.031) / _screenDensity);
+            iconUser.WidthRequest = (int)((_screenHeight * 0.031) / _screenDensity);
+            AbsoluteLayout.SetLayoutBounds(iconUser, new Rect((int)((_screenWidth * 0.015) / _screenDensity), (int)((_screenHeight * 0.018) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity)));
+            framePassword.HeightRequest = (int)((_screenHeight * 0.065) / _screenDensity);
+            framePassword.Padding = new Thickness((int)((_screenWidth * 0.04) / _screenDensity), 0, 0, 0);
+            gridPasswordUser.Margin = new Thickness(0, (int)((_screenHeight * 0.02) / _screenDensity), 0, (int)((_screenHeight * 0.02) / _screenDensity));
+            entryPassword.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
+            iconPassword.HeightRequest = (int)((_screenHeight * 0.031) / _screenDensity);
+            iconPassword.WidthRequest = (int)((_screenHeight * 0.031) / _screenDensity);
+            AbsoluteLayout.SetLayoutBounds(iconPassword, new Rect((int)((_screenWidth * 0.015) / _screenDensity), (int)((_screenHeight * 0.018) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity)));
+            buttonLogin.HeightRequest = (int)((_screenHeight * 0.08) / _screenDensity);
+            buttonLogin.WidthRequest = (int)((_screenWidth * 0.3) / _screenDensity);
+            buttonLogin.FontSize = (int)((_screenHeight * 0.017) / _screenDensity);
+            stackLayoutOptions.Margin = new Thickness(0, (int)((_screenHeight * 0.023) / _screenDensity), 0, 0);
+            stackLayoutOptions.Padding = new Thickness((int)((_screenHeight * 0.035) / _screenDensity), 0, (int)((_screenHeight * 0.035) / _screenDensity), 0);
+            labelOptionsLogin.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
+            labelOptionsLogin.WidthRequest = (int)((_screenWidth * 0.106) / _screenDensity);
+            // AbsoluteLayout.SetLayoutBounds(labelOptionsLogin, new Rect((int)((_screenWidth * 0.001) / _screenDensity), (int)((_screenHeight * 0.018) / _screenDensity), 0, 0));
+            gridSocialMedia.HeightRequest = (int)((_screenHeight * 0.047) / _screenDensity);
+            foreach (var image in gridSocialMedia.Children)
+            {
+                if (image is Image imageButton)
+                {
+                    imageButton.HeightRequest = (int)((_screenHeight * 0.047) / _screenDensity);
+                }
+            }
+            gridLastOptionsLogin.Margin = new Thickness(0, (int)((_screenHeight * 0.03) / _screenDensity), 0, 0);
+            labelRegister.FontSize = (int)((_screenHeight * 0.0115) / _screenDensity);
+            labelEnterWithOut.FontSize = (int)((_screenHeight * 0.0115) / _screenDensity);
+            GenerateCirclesAnimation();
+        }
+        public void GenerateCirclesAnimation()
+        {
+            Random random = new Random();
+            List<Border> borders = new List<Border>();
+            List<Rect> listRectsCircles = new List<Rect>
+            {
+                    new Rect(0.3, -.16, 100, 100),
+                    new Rect(0.5, -.13, 100, 100),
+                    new Rect(0.9, -.15, 100, 100),
+                    new Rect(1, -.17, 100, 100),
+                    new Rect(1.05, 0.9, 100, 100),
+                    new Rect(0.1, 1.135, 100, 100),
+                    new Rect(1.06, 0.7, 100, 100),
+                    new Rect(0.7, 1.17, 100, 100),
+                    new Rect(-0.065, 0.5, 100, 100),
+                    new Rect(0.7, -.14, 100, 100),
+                    new Rect(0.5, 1.16, 100, 100),
+                    new Rect(0.9, 1.15, 100, 100),
+                    new Rect(0.3, 1.14, 100, 100),
+                    new Rect(1.04, 0.5, 100, 100),
+                    new Rect(0.1, 1.13, 100, 100),
+                    new Rect(-0.05, 1, 100, 100),
+                    new Rect(-0.04, 0.7, 100, 100),
+                    new Rect(1.035, 0.3, 100, 100),
+            };
+            int cuantityRectsCircle = listRectsCircles.Count;
+            var timer = Application.Current.Dispatcher.CreateTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += async (s, e) =>
+            {
+                if (borders.Count <= cuantityRectsCircle)
+                {
+                    int randomNumber = random.Next(0, listRectsCircles.Count);
+                    int randomRed = random.Next(0, 256);
+                    int randomBlue = random.Next(0, 256);
+                    int randomGreen = random.Next(0, 256);
+                    Border borderAdd = GenerateCircles(listRectsCircles[randomNumber], randomRed, randomBlue, randomGreen);
+                    await borderAdd.FadeTo(1, 1000, Easing.Linear);
+                    borders.Add(borderAdd);
+                }
+                else
+                {
+                    int randomDelete = random.Next(0, borders.Count - 1);
+                    await borders[randomDelete].FadeTo(0, 1000);
+                    absoluteLayoutCircles.Children.Remove(borders[randomDelete]);
+                    borders.RemoveAt(randomDelete);
+                }
+
+            };
+            timer.Start();
+        }
+        private Border GenerateCircles(Rect rect, int red, int blue, int green)
+        {
+            var border = new Border
+            {
+                Stroke = Colors.White,
+                StrokeThickness = 2,
+                Background = Colors.White,
+                WidthRequest = (int)_screenWidth * 0.01,
+                HeightRequest = (int)_screenHeight * 0.0177,
+                StrokeShape = new RoundRectangle { CornerRadius = 0 },
+                Rotation = 45
+            };
+
+            AbsoluteLayout.SetLayoutBounds(border, rect);
+            AbsoluteLayout.SetLayoutFlags(border, AbsoluteLayoutFlags.PositionProportional);
+            var animation = new Animation();
+            animation.Add(0, 0.5, new Animation(v =>
+            {
+                border.Background = new SolidColorBrush(Color.FromRgba((red / 255.0) * v, (green / 255.0) * v, (blue / 255.0) * v, 0.15));
+            }, 0, 1));
+
+            animation.Add(0.5, 1, new Animation(v =>
+            {
+                border.Background = new SolidColorBrush(Color.FromRgba((red / 255.0) * (1 - v), (green / 255.0) * (1 - v), (blue / 255.0) * (1 - v), 0.15));
+            }, 0, 1));
+            animation.Commit(border, "ColorAnimation", 16, 6000, Easing.SinInOut, null, () => true);
+            border.Opacity = 0;
+            border.Stroke = Colors.Transparent;
+            absoluteLayoutCircles.Children.Add(border);
+            return border;
+        }
+
+
+        private async Task FadeInAll()
+        {
             var fadeInAnimation1 = new Animation(v => StackLoginPart1.Opacity = v, 0, 1);
             fadeInAnimation1.Commit(this, "FadeIn1", 16, 2000, Easing.Linear);
 
@@ -105,46 +247,29 @@ namespace ProjectTSSI
                 switch (_indexImages)
                 {
                     case 0:
-                        animationImagesLogin.HeightRequest = 350;
-                        animationImagesLogin.WidthRequest = 280;
-                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(70, -3, 280, 350));
+                        animationImagesLogin.HeightRequest = (int)(_screenHeight * 0.412) / _screenDensity;
+                        animationImagesLogin.WidthRequest = (int)(_screenWidth * 0.22) / _screenDensity;
+                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(-(int)(_screenWidth * 0.005), -(int)(_screenHeight * 0.006), 0, 0));
                         _indexImages += 1;
                         break;
 
                     case 1:
-                        animationImagesLogin.HeightRequest = 350;
-                        animationImagesLogin.WidthRequest = 300;
-                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(0, 8, 280, 350));
+                        animationImagesLogin.HeightRequest = (int)(_screenHeight * 0.412) / _screenDensity;
+                        animationImagesLogin.WidthRequest = (int)(_screenWidth * 0.2) / _screenDensity;
+                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(-(int)(_screenWidth * 0.02), -(int)(_screenHeight * 0.001), 0, 0));
                         _indexImages += 1;
                         break;
 
                     case 2:
-                        animationImagesLogin.HeightRequest = 355;
-                        animationImagesLogin.WidthRequest = 340;
-                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(0, -6, 280, 350));
+                        animationImagesLogin.HeightRequest = (int)(_screenHeight * 0.412) / _screenDensity;
+                        animationImagesLogin.WidthRequest = (int)(_screenWidth * 0.22) / _screenDensity;
+                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(-(int)(_screenWidth * 0.02), -(int)(_screenHeight * 0.005), 0, 0));
                         _indexImages = 0;
                         break;
                 }
                 await animationImagesLogin.FadeTo(1, 2000);
                 await Task.Delay(10000);
                 await animationImagesLogin.FadeTo(0, 2000);
-            }
-        }
-        private void SetWindowRestrictions(){
-           // Obtén la ventana actual de la aplicación
-            var mauiWindow = Application.Current.Windows[0].Handler.PlatformView as MauiWinUIWindow;
-            var appWindow = mauiWindow?.AppWindow;
-
-            if (appWindow != null){
-                 // Configura el tamaño de la ventana
-                appWindow.Resize(new Windows.Graphics.SizeInt32(1900, 1050));
-
-                /// Configura el tamaño mínimo de la ventana
-                var presenter = appWindow.Presenter as OverlappedPresenter;
-                if (presenter != null){
-                    presenter.IsResizable = false; // Bloquea el redimensionamiento de la ventana
-                    presenter.IsMaximizable = false; //Bloquea la maximizacion
-                }
             }
         }
         private async void OnFocusedUser(object sender, FocusEventArgs e)
@@ -156,84 +281,97 @@ namespace ProjectTSSI
 
         private async void ActiveButtonLogin()
         {
-            if(!string.IsNullOrWhiteSpace(LoginUserText)){
-                Regex regexMail = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"); 
-                if(regexMail.IsMatch(LoginUserText)){
+            if (!string.IsNullOrWhiteSpace(LoginUserText))
+            {
+                Regex regexMail = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+                if (regexMail.IsMatch(LoginUserText))
+                {
                     _correctMail = true;
                     ErrorMail.Children.Clear();
                     _elementOfErrorMail = 0;
-                } 
-                else{
+                }
+                else
+                {
                     _correctMail = false;
-                    if(_elementOfErrorMail == 0){
+                    if (_elementOfErrorMail == 0)
+                    {
                         // Crear el AbsoluteLayout principal
-                    var innerAbsoluteLayout = new AbsoluteLayout{
-                        HeightRequest = 35,
-                    };
-                    AbsoluteLayout.SetLayoutBounds(innerAbsoluteLayout, new Rect(0, 23, 1, 0.1));
-                    AbsoluteLayout.SetLayoutFlags(innerAbsoluteLayout, Microsoft.Maui.Layouts.AbsoluteLayoutFlags.WidthProportional);
-                    // Crear el Border
-                    var border = new Border{
-                        BackgroundColor = Color.FromArgb("#CD5C5C"),
-                        HeightRequest = 35,
-                        StrokeThickness = 0,
-                        Padding = new Thickness(0)
-                    };
-                    AbsoluteLayout.SetLayoutBounds(border, new Rect(0, 17, 1, 1));
-                    AbsoluteLayout.SetLayoutFlags(border, Microsoft.Maui.Layouts.AbsoluteLayoutFlags.All);
-                    // Definir la forma del borde con esquinas redondeadas en la parte inferior
-                    border.StrokeShape = new RoundRectangle{
-                        CornerRadius = new CornerRadius(0, 0, 5, 5)
-                    };
+                        var innerAbsoluteLayout = new AbsoluteLayout
+                        {
+                            HeightRequest = 35,
+                        };
+                        AbsoluteLayout.SetLayoutBounds(innerAbsoluteLayout, new Rect(0, 23, 1, 0.1));
+                        AbsoluteLayout.SetLayoutFlags(innerAbsoluteLayout, Microsoft.Maui.Layouts.AbsoluteLayoutFlags.WidthProportional);
+                        // Crear el Border
+                        var border = new Border
+                        {
+                            BackgroundColor = Color.FromArgb("#CD5C5C"),
+                            HeightRequest = 35,
+                            StrokeThickness = 0,
+                            Padding = new Thickness(0)
+                        };
+                        AbsoluteLayout.SetLayoutBounds(border, new Rect(0, 17, 1, 1));
+                        AbsoluteLayout.SetLayoutFlags(border, Microsoft.Maui.Layouts.AbsoluteLayoutFlags.All);
+                        // Definir la forma del borde con esquinas redondeadas en la parte inferior
+                        border.StrokeShape = new RoundRectangle
+                        {
+                            CornerRadius = new CornerRadius(0, 0, 5, 5)
+                        };
 
-                    // Crear el Label
-                    var label = new Label{
-                        Text = "El Correo Proporcionado No Es Valido",
-                        FontFamily = "PoppinsRegular",
-                        FontSize = 11,
-                        TextColor = Colors.White,
-                        HorizontalTextAlignment = TextAlignment.Center,
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        VerticalOptions = LayoutOptions.End
-                    };
-                    AbsoluteLayout.SetLayoutBounds(label, new Rect(0.5, 0.5, 1, 1));
-                    AbsoluteLayout.SetLayoutFlags(label, Microsoft.Maui.Layouts.AbsoluteLayoutFlags.All);
-                    // Agregar el Label al Border
-                    border.Content = label;
+                        // Crear el Label
+                        var label = new Label
+                        {
+                            Text = "El Correo Proporcionado No Es Valido",
+                            FontFamily = "PoppinsRegular",
+                            FontSize = 11,
+                            TextColor = Colors.White,
+                            HorizontalTextAlignment = TextAlignment.Center,
+                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                            VerticalOptions = LayoutOptions.End
+                        };
+                        AbsoluteLayout.SetLayoutBounds(label, new Rect(0.5, 0.5, 1, 1));
+                        AbsoluteLayout.SetLayoutFlags(label, Microsoft.Maui.Layouts.AbsoluteLayoutFlags.All);
+                        // Agregar el Label al Border
+                        border.Content = label;
 
-                    // Agregar el Border al AbsoluteLayout
-                    innerAbsoluteLayout.Children.Add(border);
+                        // Agregar el Border al AbsoluteLayout
+                        innerAbsoluteLayout.Children.Add(border);
 
-                    // Agregar el AbsoluteLayout principal al AbsoluteLayout con nombre ErrorMail
-                    ErrorMail.Children.Add(innerAbsoluteLayout);
-                    _elementOfErrorMail = 1;
-                    // Ejecutar la animación para mover el AbsoluteLayout 
-                    var taskCompletionSource = new TaskCompletionSource<bool>(); 
-                    innerAbsoluteLayout.Animate("moveAnimation", new Animation(v => AbsoluteLayout.SetLayoutBounds(innerAbsoluteLayout, new Rect(0, v, 1, 0.1)), 23, 50), length: 200, easing: Easing.Linear, finished: (v, c) => taskCompletionSource.SetResult(true)); 
-                    await taskCompletionSource.Task;
-                    await innerAbsoluteLayout.ScaleTo(1.01, 200, Easing.CubicIn);
-                    await innerAbsoluteLayout.ScaleTo(1.0, 200, Easing.CubicOut);
+                        // Agregar el AbsoluteLayout principal al AbsoluteLayout con nombre ErrorMail
+                        ErrorMail.Children.Add(innerAbsoluteLayout);
+                        _elementOfErrorMail = 1;
+                        // Ejecutar la animación para mover el AbsoluteLayout 
+                        var taskCompletionSource = new TaskCompletionSource<bool>();
+                        innerAbsoluteLayout.Animate("moveAnimation", new Animation(v => AbsoluteLayout.SetLayoutBounds(innerAbsoluteLayout, new Rect(0, v, 1, 0.1)), 23, 50), length: 200, easing: Easing.Linear, finished: (v, c) => taskCompletionSource.SetResult(true));
+                        await taskCompletionSource.Task;
+                        await innerAbsoluteLayout.ScaleTo(1.01, 200, Easing.CubicIn);
+                        await innerAbsoluteLayout.ScaleTo(1.0, 200, Easing.CubicOut);
                     }
                 }
             }
-            else{
+            else
+            {
                 ErrorMail.Children.Clear();
                 _elementOfErrorMail = 0;
             }
-            if(!string.IsNullOrWhiteSpace(LoginPasswordText)){
+            if (!string.IsNullOrWhiteSpace(LoginPasswordText))
+            {
                 _correctPassword = true;
                 ErrorPassword.Children.Clear();
-            } 
-            else{
+            }
+            else
+            {
                 _correctPassword = false;
-                
-            } 
 
-            if(!string.IsNullOrWhiteSpace(LoginUserText) && !string.IsNullOrWhiteSpace(LoginPasswordText) && _correctMail && _correctPassword){
+            }
+
+            if (!string.IsNullOrWhiteSpace(LoginUserText) && !string.IsNullOrWhiteSpace(LoginPasswordText) && _correctMail && _correctPassword)
+            {
                 IsButtonLoginActive = true;
                 buttonLogin.BackgroundColor = Color.FromArgb("#6f69cf");
             }
-            else if(string.IsNullOrWhiteSpace(LoginPasswordText) || string.IsNullOrWhiteSpace(LoginUserText) || !_correctMail || _correctPassword){
+            else if (string.IsNullOrWhiteSpace(LoginPasswordText) || string.IsNullOrWhiteSpace(LoginUserText) || !_correctMail || _correctPassword)
+            {
                 IsButtonLoginActive = false;
                 buttonLogin.BackgroundColor = Color.FromArgb("#b9b5ff");
             }
@@ -264,15 +402,18 @@ namespace ProjectTSSI
         {
             if (sender is Label label)
             {
-                if (label.AutomationId == "LabelRegister"){
-                    try{
+                if (label.AutomationId == "LabelRegister")
+                {
+                    try
+                    {
                         await AnimationStackFadeReg();
                         await SwapPositionsBorders();
                         await Task.Delay(200);
                         Application.Current.MainPage = new RegisterWS();
                     }
-                    catch (System.Exception ex){
-                        DisplayAlert("ERROR",ex.Message,"OK");
+                    catch (System.Exception ex)
+                    {
+                        DisplayAlert("ERROR", ex.Message, "OK");
                     }
                 }
                 else if (label.AutomationId == "LabelEnterWithOut")
@@ -301,8 +442,10 @@ namespace ProjectTSSI
                     Application.Current.MainPage = new PrincipalPage();
                 }
             }
-            if(sender is Button button){
-                if(button.AutomationId == "ButtonToLogin" && IsButtonLoginActive){
+            if (sender is Button button)
+            {
+                if (button.AutomationId == "ButtonToLogin" && IsButtonLoginActive)
+                {
                     LoaderPrincipalPage.BackgroundColor = Color.FromArgb("#7e7e7e");
                     LoaderPrincipalPage.Opacity = 0.5;
                     LoaderPrincipalPage.VerticalOptions = LayoutOptions.FillAndExpand;
@@ -329,22 +472,25 @@ namespace ProjectTSSI
             }
         }
 
-        private async Task AnimationStackFadeReg(){
+        private async Task AnimationStackFadeReg()
+        {
             var fadeOutAnimation1 = new Animation(v => StackLoginPart1.Opacity = v, 1, 0);
             fadeOutAnimation1.Commit(this, "FadeOut1", 16, 300, Easing.Linear);
-    
+
             var fadeOutAnimation2 = new Animation(v => StackLoginPart2.Opacity = v, 1, 0);
             fadeOutAnimation2.Commit(this, "FadeOut2", 16, 300, Easing.Linear);
 
             var fadeOutAnimation3 = new Animation(v => StackLoginPart3.Opacity = v, 1, 0);
             fadeOutAnimation3.Commit(this, "FadeOut3", 16, 300, Easing.Linear);
             await Task.Delay(300);
-            if (BorderLayoutLoginPart1.Content is Layout layout1){
+            if (BorderLayoutLoginPart1.Content is Layout layout1)
+            {
                 layout1.Children.Clear();
             }
         }
 
-        private async Task SwapPositionsBorders(){
+        private async Task SwapPositionsBorders()
+        {
             var layoutBounds1 = AbsoluteLayout.GetLayoutBounds(BorderLayoutLoginPart1);
             var layoutBounds2 = AbsoluteLayout.GetLayoutBounds(BorderLayoutLoginPart2);
             var swapAnimation = new Animation();
@@ -354,11 +500,11 @@ namespace ProjectTSSI
             await Task.Delay(300);
             // Cambiar las esquinas redondeadas 
             BorderLayoutLoginPart1.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(0, 18, 0, 18) };
-            BorderLayoutLoginPart2.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(18,0,18,0) };
+            BorderLayoutLoginPart2.StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(18, 0, 18, 0) };
             await Task.Delay(600);
         }
- 
-        
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)

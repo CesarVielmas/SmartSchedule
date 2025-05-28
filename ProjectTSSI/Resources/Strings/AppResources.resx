@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <data name="TittleLogin"
+          xml:space="preserve">
+        <value>INICIAR SESION</value>
+    </data>
+    <data name="SecondTittleLogin"
+          xml:space="preserve">
+        <value>Bienvenido a SmartScheduler su administrador de tareas inteligentes</value>
+    </data>
+    <data name="MailLoginTittle"
+          xml:space="preserve">
+        <value>Correo Electronico</value>
+    </data>
+    <data name="PasswordLoginTittle"
+          xml:space="preserve">
+        <value>Contraseña</value>
+    </data>
+    <data name="EnterLoginTittle"
+          xml:space="preserve">
+        <value>INGRESAR AHORA</value>
+    </data>
+    <data name="OptionsLoginTittle"
+          xml:space="preserve">
+        <value>Opciones de inicio de sesion</value>
+    </data>
+    <data name="RegisterLoginTittle"
+          xml:space="preserve">
+        <value>¿No tiene ninguna cuenta?</value>
+    </data>
+    <data name="WithOutAccountLoginTittle"
+          xml:space="preserve">
+        <value>Ingresar sin ninguna cuenta</value>
+    </data>
+</root>

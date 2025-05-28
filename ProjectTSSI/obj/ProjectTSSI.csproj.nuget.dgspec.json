@@ -21,7 +21,7 @@
           "net8.0-android",
           "net8.0-ios",
           "net8.0-maccatalyst",
-          "net8.0-windows10.0.19041.0"
+          "net8.0-windows10.0.22000.0"
         ],
         "sources": {
           "C:\\Program Files\\dotnet\\library-packs": {},
@@ -40,8 +40,8 @@
             "targetAlias": "net8.0-maccatalyst",
             "projectReferences": {}
           },
-          "net8.0-windows10.0.19041": {
-            "targetAlias": "net8.0-windows10.0.19041.0",
+          "net8.0-windows10.0.22000": {
+            "targetAlias": "net8.0-windows10.0.22000.0",
             "projectReferences": {}
           }
         },
@@ -92,7 +92,7 @@
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.6.240829007, )"
+              "version": "[1.7.250513003, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -159,7 +159,7 @@
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.6.240829007, )"
+              "version": "[1.7.250513003, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -226,7 +226,7 @@
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.6.240829007, )"
+              "version": "[1.7.250513003, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -259,8 +259,8 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         },
-        "net8.0-windows10.0.19041": {
-          "targetAlias": "net8.0-windows10.0.19041.0",
+        "net8.0-windows10.0.22000": {
+          "targetAlias": "net8.0-windows10.0.22000.0",
           "dependencies": {
             "FFImageLoading.Maui": {
               "target": "Package",
@@ -288,7 +288,7 @@
             },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
-              "version": "[1.6.240829007, )"
+              "version": "[1.7.250513003, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -313,7 +313,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.19041.44, 10.0.19041.44]"
+              "version": "[10.0.22000.44, 10.0.22000.44]"
             }
           ],
           "frameworkReferences": {

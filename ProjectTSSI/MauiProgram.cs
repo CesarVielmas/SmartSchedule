@@ -1,5 +1,15 @@
 ﻿using Microsoft.Extensions.Logging;
 using FFImageLoading.Maui;
+using Microsoft.Maui.LifecycleEvents;
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
+using Windows.Graphics;
+using WinRT.Interop;
+using Microsoft.UI.Composition.SystemBackdrops;
+using Microsoft.UI.Xaml;
+using Windows.System;
+using WinRT;
+using Microsoft.UI.Composition;
 
 namespace ProjectTSSI;
 
@@ -25,6 +35,37 @@ public static class MauiProgram
         builder.UseFFImageLoading();
         builder.Logging.AddConsole();
         builder.Logging.SetMinimumLevel(LogLevel.Debug);
+        builder.ConfigureMauiHandlers(handlers =>
+        {
+            handlers.AddHandler(typeof(Entry), typeof(CustomEntryHandler));
+        });
+        builder.ConfigureLifecycleEvents(lifecycle =>
+        {
+            lifecycle.AddWindows(windows =>
+            {
+                windows.OnWindowCreated(window =>
+                {
+                    var hwnd = WindowNative.GetWindowHandle(window);
+                    var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+                    var appWindow = AppWindow.GetFromWindowId(windowId);
+                    var displayInfo = DisplayArea.GetFromWindowId(appWindow.Id, DisplayAreaFallback.Primary);
+                    appWindow.Move(new Windows.Graphics.PointInt32((int)(displayInfo.WorkArea.Width * 0.06), (int)(displayInfo.WorkArea.Height * 0.15)));
+                    appWindow.Resize(new Windows.Graphics.SizeInt32((int)(displayInfo.WorkArea.Width * 0.9), (int)(displayInfo.WorkArea.Height * 0.7)));
+                    appWindow.TitleBar.ExtendsContentIntoTitleBar = true;
+                    appWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Standard;
+                    WindowExtensionsWindow.SetRoundedCorners(hwnd);
+                    if (appWindow.Presenter is OverlappedPresenter presenter)
+                    {
+                        presenter.IsMaximizable = false;
+                        presenter.IsMinimizable = false;
+                        presenter.IsResizable = false;
+                        presenter.SetBorderAndTitleBar(false, false);
+                    }
+                    if (window.Content is Microsoft.UI.Xaml.Controls.Panel panel)
+                        panel.Background = new Microsoft.UI.Xaml.Media.SolidColorBrush(Microsoft.UI.Colors.Transparent);
+                });
+            });
+        });
 #endif
         builder.Logging.AddDebug();
         builder.Logging.AddConsole();
