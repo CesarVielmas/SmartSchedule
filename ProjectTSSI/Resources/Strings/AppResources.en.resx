@@ -32,4 +32,8 @@
           xml:space="preserve">
         <value>Sign in without an account</value>
     </data>
+    <data name="DebugInspectorInit"
+          xml:space="preserve">
+        <value>Welcome to the Debug Inspector, Select the custom element to debug</value>
+    </data>
 </root>

@@ -32,4 +32,8 @@
           xml:space="preserve">
         <value>Ingresar sin ninguna cuenta</value>
     </data>
+    <data name="DebugInspectorInit"
+          xml:space="preserve">
+        <value>Bienvenido al inspector de depuracion , Seleccione el elemento personalizado a depurar</value>
+    </data>
 </root>

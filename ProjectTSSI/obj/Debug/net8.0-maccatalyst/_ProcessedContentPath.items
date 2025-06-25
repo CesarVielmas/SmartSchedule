@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Content Include="C:\Users\vielm\.nuget\packages\microsoft.web.webview2\1.0.2651.64\build\\..\runtimes\win-x86\native\WebView2Loader.dll" />
-    <Content Include="C:\Users\vielm\.nuget\packages\microsoft.web.webview2\1.0.2651.64\build\\..\runtimes\win-x64\native\WebView2Loader.dll" />
-    <Content Include="C:\Users\vielm\.nuget\packages\microsoft.web.webview2\1.0.2651.64\build\\..\runtimes\win-arm64\native\WebView2Loader.dll" />
-    <Content Include="Resources\Raw\AboutAssets.txt" />
-  </ItemGroup>
-</Project>

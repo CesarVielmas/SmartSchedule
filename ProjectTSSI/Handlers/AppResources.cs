@@ -18,6 +18,7 @@ public static class AppResources
     public static string OptionsLoginTittle => _resourceManager.GetString("OptionsLoginTittle", CultureInfo.CurrentUICulture);
     public static string RegisterLoginTittle => _resourceManager.GetString("RegisterLoginTittle", CultureInfo.CurrentUICulture);
     public static string WithOutAccountLoginTittle => _resourceManager.GetString("WithOutAccountLoginTittle", CultureInfo.CurrentUICulture);
+    public static string DebugInspectorInit => _resourceManager.GetString("DebugInspectorInit", CultureInfo.CurrentUICulture);
 
 }
 public static class LocalizationManager

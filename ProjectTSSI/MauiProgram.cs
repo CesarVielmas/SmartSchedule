@@ -10,6 +10,8 @@ using Microsoft.UI.Xaml;
 using Windows.System;
 using WinRT;
 using Microsoft.UI.Composition;
+using ProjectTSSI.Global;
+using Windows.UI.Core;
 
 namespace ProjectTSSI;
 
@@ -35,6 +37,10 @@ public static class MauiProgram
         builder.UseFFImageLoading();
         builder.Logging.AddConsole();
         builder.Logging.SetMinimumLevel(LogLevel.Debug);
+        builder.Services.AddLogging(configure =>
+        {
+            configure.AddDebug();
+        });
         builder.ConfigureMauiHandlers(handlers =>
         {
             handlers.AddHandler(typeof(Entry), typeof(CustomEntryHandler));
@@ -45,6 +51,7 @@ public static class MauiProgram
             {
                 windows.OnWindowCreated(window =>
                 {
+                    var realDisplayInfo = DeviceDisplay.Current.MainDisplayInfo;
                     var hwnd = WindowNative.GetWindowHandle(window);
                     var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
                     var appWindow = AppWindow.GetFromWindowId(windowId);
@@ -69,7 +76,6 @@ public static class MauiProgram
 #endif
         builder.Logging.AddDebug();
         builder.Logging.AddConsole();
-
         return builder.Build();
     }
 }

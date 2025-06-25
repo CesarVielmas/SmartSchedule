@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectTSSI")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute(" ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a208520670ee9d5adcfd90ebd4763eac63de2281")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+611823921bbec06c3df4fed2d020353bab97950a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectTSSI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectTSSI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

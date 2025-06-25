@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ProjectTSSI.Handlers.Windows"
              xmlns:local="clr-namespace:ProjectTSSI"
              xmlns:resx="clr-namespace:ProjectTSSI.Handlers"
              x:Class="ProjectTSSI.LoginWS"
@@ -159,6 +160,43 @@
                             </Button.GestureRecognizers>
                         </Button>
                     </StackLayout>
+                    <!-- <custom:CustomGrid AutomationId="custom_grid_padre"
+                                       BackgroundColor="Black"
+                                       ResponsiveConfig="{custom:CustomConfigBinding Key=custom_grid_padre_ResponsiveConfig}"
+                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=custom_grid_padre_GridResponsiveConfig}" />
+                    <custom:CustomStackLayout AutomationId="custom_stack_layout_padre"
+                                              BackgroundColor="Blue"
+                                              ResponsiveConfig="{custom:CustomConfigBinding Key=custom_stack_layout_padre_ResponsiveConfig}"
+                                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=custom_stack_layout_padre_StackLayoutResponsiveConfig}" />
+                    <custom:CustomLabel AutomationId="custom_label_padre"
+                                        Text="Holaaaaaaaaaaaaaaaaaaaaaaa"
+                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_label_padre_ResponsiveConfig}"
+                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=custom_label_padre_LabelResponsiveConfig}" />
+                    <custom:CustomAbsoluteLayout AutomationId="custom_absolute_layout_padre"
+                                                 BackgroundColor="Gray"
+                                                 ResponsiveConfig="{custom:CustomConfigBinding Key=custom_absolute_layout_padre_ResponsiveConfig}" />
+                    <custom:CustomFrame AutomationId="custom_frame_padre"
+                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_frame_padre_ResponsiveConfig}"
+                                        FrameResponsiveConfig="{custom:CustomConfigBinding Key=custom_frame_padre_FrameResponsiveConfig}" />
+                    <custom:CustomBorder AutomationId="custom_border_padre"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=custom_border_padre_ResponsiveConfig}"
+                                         BorderResponsiveConfig="{custom:CustomConfigBinding Key=custom_border_padre_BorderResponsiveConfig}" />
+                    <custom:CustomEntry AutomationId="custom_entry_padre"
+                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_entry_padre_ResponsiveConfig}"
+                                        EntryResponsiveConfig="{custom:CustomConfigBinding Key=custom_entry_padre_EntryResponsiveConfig}"
+                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=custom_entry_padre_LabelResponsiveConfig}" />
+                    <custom:CustomImage AutomationId="custom_image_padre"
+                                        Source="https://i.pinimg.com/474x/4a/b3/af/4ab3af95b55c62fcfd5bee09e8913c50.jpg"
+                                        Aspect="Fill"
+                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_image_padre_ResponsiveConfig}"
+                                        ImageResponsiveConfig="{custom:CustomConfigBinding Key=custom_image_padre_ImageResponsiveConfig}" />
+                    <custom:CustomButton AutomationId="custom_button_padre"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=custom_button_padre_ResponsiveConfig}"
+                                         ButtonResponsiveConfig="{custom:CustomConfigBinding Key=custom_button_padre_ButtonResponsiveConfig}"
+                                         LabelResponsiveConfig="{custom:CustomConfigBinding Key=custom_button_padre_LabelResponsiveConfig}" />
+                    <custom:CustomBoxView AutomationId="custom_box_view_padre"
+                                          ResponsiveConfig="{custom:CustomConfigBinding Key=custom_box_view_padre_ResponsiveConfig}"
+                                          BoxViewResponsiveConfig="{custom:CustomConfigBinding Key=custom_box_view_padre_BoxViewResponsiveConfig}" /> -->
                     <StackLayout x:Name="stackLayoutOptions"
                                  HorizontalOptions="FillAndExpand"
                                  Padding="50,0,50,0"
@@ -310,5 +348,10 @@
                         AbsoluteLayout.LayoutBounds="0,0,1,1"
                         AbsoluteLayout.LayoutFlags="All"
                         IsVisible="False" />
+        <custom:DebugInspector Grid.Row="0"
+                               VerticalOptions="Start"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               IsVisibleDebug="{Binding IsDebugMode}" />
     </Grid>
 </ContentPage>

@@ -1,4 +1,4 @@
-namespace ProjectTSSI
+namespace ProjectTSSI.Handlers.Windows
 {
     public class CursorBehavior
     {
