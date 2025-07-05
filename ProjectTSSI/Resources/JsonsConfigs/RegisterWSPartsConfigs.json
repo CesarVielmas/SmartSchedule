@@ -1,0 +1,215 @@
+{
+  "stack_register_form_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "stack_register_form_StackLayoutResponsiveConfig": {
+    "SpacingPercentage": 0
+  },
+  "label_step_title_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.017,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "label_step_title_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.0135,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0.001,
+    "MaxLinesView": 1,
+    "ColorTextView": "#979eb3"
+  },
+  "label_step_title_final_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.035,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "label_step_title_final_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.0135,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0.001,
+    "MaxLinesView": 1,
+    "ColorTextView": "#979eb3"
+  },
+  "label_personal_info_title_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "label_personal_info_title_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.027,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0,
+    "MaxLinesView": 1,
+    "ColorTextView": "#707789"
+  },
+  "label_personal_info_title_final_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.02,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "label_personal_info_title_final_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.035,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0,
+    "MaxLinesView": 1,
+    "ColorTextView": "#707789"
+  },
+  "label_description_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0.015",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "label_description_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.0113,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0.00085,
+    "MaxLinesView": 2,
+    "ColorTextView": "#555555"
+  },
+  "label_description_final_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.01,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "label_description_final_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.0155,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0.0008,
+    "MaxLinesView": 3,
+    "ColorTextView": "#555555"
+  },
+  "grid_register_field_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0.065,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.0175,0,0",
+    "PaddingPercentage": "0.008,0,0.008,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "grid_register_field_GridResponsiveConfig": {
+    "RowSpacingPercentage": 0,
+    "ColumnSpacingPercentage": 0
+  },
+  "absolute_layout_error_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "frame_register_field_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#e6e2fd"
+  },
+  "frame_register_field_FrameResponsiveConfig": {
+    "CornerRadiusPercentage": 0.015,
+    "ShadowView": "0,0,#00FFFFFF,(0,0)",
+    "BorderColorView": "#e6e2fd"
+  },
+  "entry_register_field_ResponsiveConfig": {
+    "WidthPercentage": 0.31,
+    "HeightPercentage": 0.02,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#e6e2fd"
+  },
+  "entry_register_field_EntryResponsiveConfig": {
+    "PlaceholderColorView": "#717171",
+    "BackgroundColorHolderView": "#00FFFFFF"
+  },
+  "entry_register_field_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.0137,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0,
+    "MaxLinesView": 1,
+    "ColorTextView": "#717171"
+  },
+  "absolute_layout_icon_ResponsiveConfig": {
+    "WidthPercentage": 0.023,
+    "HeightPercentage": 0.05,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0.015,0.01,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "image_register_icon_ResponsiveConfig": {
+    "WidthPercentage": 0.017,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.0035,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "image_register_icon_ImageResponsiveConfig": {
+    "AnchorXPercentage": 0,
+    "AnchorYPercentage": 0,
+    "ShadowView": "0,0,#00FFFFFF,(0,0)"
+  }
+}

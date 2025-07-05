@@ -12,7 +12,8 @@ using WinRT;
 using Microsoft.UI.Composition;
 using ProjectTSSI.Global;
 using Windows.UI.Core;
-
+using ProjectTSSI.Models.Interfaces;
+using ProjectTSSI.Services;
 namespace ProjectTSSI;
 
 public static class MauiProgram
@@ -33,6 +34,10 @@ public static class MauiProgram
             });
 
 #if WINDOWS
+        builder.Services.AddSingleton<IAnimationsService, TextAnimationService>();
+        builder.Services.AddSingleton<IAnimationsService, ContentAnimationService>();
+        builder.Services.AddSingleton<IAnimationServiceComposer,ComposerAnimationsService>();
+        builder.Services.AddTransient<RegisterWS>();
         builder.Logging.ClearProviders();
         builder.UseFFImageLoading();
         builder.Logging.AddConsole();
@@ -76,6 +81,8 @@ public static class MauiProgram
 #endif
         builder.Logging.AddDebug();
         builder.Logging.AddConsole();
-        return builder.Build();
+        var app = builder.Build();
+        GlobalConstants.ServiceProvider = app.Services;
+        return app;
     }
 }

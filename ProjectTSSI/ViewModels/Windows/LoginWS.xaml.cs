@@ -20,6 +20,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using ProjectTSSI.Models;
 using ProjectTSSI.Models.Interfaces;
+using ProjectTSSI.Handlers.Windows;
 
 
 namespace ProjectTSSI
@@ -28,8 +29,9 @@ namespace ProjectTSSI
     {
         #region Properties
         public Dictionary<string, INotifyPropertyChanged> Configurations { get; set; } = new();
+        private List<Border> listBordersAnimation { get; set; } = new();
         public event PropertyChangedEventHandler PropertyChanged;
-        private DispatcherTimer _checkCoreWindowTimer;
+        private DispatcherTimer _checkCoreWindowTimer = new();
         private readonly List<string> _listImages = new List<string>
         {
             "login_image_one.png",
@@ -103,14 +105,14 @@ namespace ProjectTSSI
         #region Init Component
         public LoginWS()
         {
-            GlobalMethods.LoadJsonConfigurations(Configurations);
+            GlobalMethods.LoadJsonConfigurations(Configurations, "LoginWSConfigs.json");
             OnPropertyChanged(nameof(Configurations));
             InitializeComponent();
             BindingContext = this;
             this.Loaded += OnPageLoaded;
             this.Unloaded += OnPageUnloaded;
         }
-        private void OnPageLoaded(object sender, EventArgs e)
+        public void OnPageLoaded(object sender, EventArgs e)
         {
             var mauiWindow = Microsoft.Maui.Controls.Application.Current?.Windows?.FirstOrDefault();
             if (mauiWindow?.Handler?.PlatformView is Microsoft.UI.Xaml.Window nativeWindow)
@@ -127,7 +129,7 @@ namespace ProjectTSSI
                     fe.KeyboardAccelerators.Add(accelerator);
             }
         }
-        private void OnPageUnloaded(object sender, EventArgs e)
+        public void OnPageUnloaded(object sender, EventArgs e)
         {
             var mauiWindow = Microsoft.Maui.Controls.Application.Current?.Windows?.FirstOrDefault();
             if (mauiWindow?.Handler?.PlatformView is Microsoft.UI.Xaml.Window nativeWindow)
@@ -143,6 +145,9 @@ namespace ProjectTSSI
                     }
                 }
             }
+            _checkCoreWindowTimer.Stop();
+            listBordersAnimation.ForEach(b => { b.AbortAnimation("ColorAnimation"); absoluteLayoutCircles.Children.Remove(b); });
+            listBordersAnimation.Clear();
         }
         public void Accelerator_Invoked(object sender, KeyboardAcceleratorInvokedEventArgs args)
         {
@@ -152,11 +157,19 @@ namespace ProjectTSSI
         }
         protected override async void OnAppearing()
         {
+            try
+            {
+                await SetConstants();
+                setSizesItems();
+                ImagesAnimations();
+                await FadeInAll();
+            }
+            catch (System.Exception ex)
+            {
+                Logger.Log($"Error:{ex.Message}");
+            }
             base.OnAppearing();
-            await SetConstants();
-            setSizesItems();
-            ImagesAnimations();
-            await FadeInAll();
+
         }
         private async Task SetConstants()
         {
@@ -168,55 +181,14 @@ namespace ProjectTSSI
         }
         private void setSizesItems()
         {
-            GlobalMethods.LoadJsonConfigurations(Configurations);
+            GlobalMethods.LoadJsonConfigurations(Configurations, "LoginWSConfigs.json");
             OnPropertyChanged(nameof(Configurations));
-            principalGrid.Padding = (int)((_screenWidth * 0.025) / _screenDensity);
-            StackLoginPart1.Padding = (int)((_screenHeight * 0.01) / _screenDensity);
-            StackLoginPart2.HeightRequest = (int)((_screenHeight * 0.4) / _screenDensity);
-            StackLoginPart2.WidthRequest = (int)((_screenWidth * 0.32) / _screenDensity);
-            tittleLoginText.FontSize = (int)((_screenHeight * 0.038) / _screenDensity);
-            tittleLoginText.Margin = new Microsoft.Maui.Thickness(0, (int)((_screenHeight * 0.02) / _screenDensity), 0, 0);
-            secondTittleLoginText.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
-            frameMailUser.HeightRequest = (int)((_screenHeight * 0.065) / _screenDensity);
-            frameMailUser.Padding = new Microsoft.Maui.Thickness((int)((_screenWidth * 0.04) / _screenDensity), 0, 0, 0);
-            gridMailUser.Margin = new Microsoft.Maui.Thickness(0, (int)((_screenHeight * 0.005) / _screenDensity), 0, 0);
-            entryUser.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
-            iconUser.HeightRequest = (int)((_screenHeight * 0.031) / _screenDensity);
-            iconUser.WidthRequest = (int)((_screenHeight * 0.031) / _screenDensity);
-            AbsoluteLayout.SetLayoutBounds(iconUser, new Rect((int)((_screenWidth * 0.015) / _screenDensity), (int)((_screenHeight * 0.018) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity)));
-            framePassword.HeightRequest = (int)((_screenHeight * 0.065) / _screenDensity);
-            framePassword.Padding = new Microsoft.Maui.Thickness((int)((_screenWidth * 0.04) / _screenDensity), 0, 0, 0);
-            gridPasswordUser.Margin = new Microsoft.Maui.Thickness(0, (int)((_screenHeight * 0.02) / _screenDensity), 0, (int)((_screenHeight * 0.02) / _screenDensity));
-            entryPassword.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
-            iconPassword.HeightRequest = (int)((_screenHeight * 0.031) / _screenDensity);
-            iconPassword.WidthRequest = (int)((_screenHeight * 0.031) / _screenDensity);
-            AbsoluteLayout.SetLayoutBounds(iconPassword, new Rect((int)((_screenWidth * 0.015) / _screenDensity), (int)((_screenHeight * 0.018) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity), (int)((_screenHeight * 0.031) / _screenDensity)));
-            buttonLogin.HeightRequest = (int)((_screenHeight * 0.08) / _screenDensity);
-            buttonLogin.WidthRequest = (int)((_screenWidth * 0.3) / _screenDensity);
-            buttonLogin.FontSize = (int)((_screenHeight * 0.017) / _screenDensity);
-            stackLayoutOptions.Margin = new Microsoft.Maui.Thickness(0, (int)((_screenHeight * 0.023) / _screenDensity), 0, 0);
-            stackLayoutOptions.Padding = new Microsoft.Maui.Thickness((int)((_screenHeight * 0.035) / _screenDensity), 0, (int)((_screenHeight * 0.035) / _screenDensity), 0);
-            labelOptionsLogin.FontSize = (int)((_screenHeight * 0.012) / _screenDensity);
-            labelOptionsLogin.WidthRequest = (int)((_screenWidth * 0.106) / _screenDensity);
-            // AbsoluteLayout.SetLayoutBounds(labelOptionsLogin, new Rect((int)((_screenWidth * 0.001) / _screenDensity), (int)((_screenHeight * 0.018) / _screenDensity), 0, 0));
-            gridSocialMedia.HeightRequest = (int)((_screenHeight * 0.047) / _screenDensity);
-            foreach (var image in gridSocialMedia.Children)
-            {
-                if (image is Image imageButton)
-                {
-                    imageButton.HeightRequest = (int)((_screenHeight * 0.047) / _screenDensity);
-                }
-            }
-            gridLastOptionsLogin.Margin = new Microsoft.Maui.Thickness(0, (int)((_screenHeight * 0.03) / _screenDensity), 0, 0);
-            labelRegister.FontSize = (int)((_screenHeight * 0.0115) / _screenDensity);
-            labelEnterWithOut.FontSize = (int)((_screenHeight * 0.0115) / _screenDensity);
             GenerateCirclesAnimation();
         }
         #endregion
         public void GenerateCirclesAnimation()
         {
             Random random = new Random();
-            List<Border> borders = new List<Border>();
             List<Rect> listRectsCircles = new List<Rect>
             {
                     new Rect(0.3, -.16, 100, 100),
@@ -239,11 +211,10 @@ namespace ProjectTSSI
                     new Rect(1.035, 0.3, 100, 100),
             };
             int cuantityRectsCircle = listRectsCircles.Count;
-            var timer = Microsoft.Maui.Controls.Application.Current.Dispatcher.CreateTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += async (s, e) =>
+            _checkCoreWindowTimer.Interval = TimeSpan.FromSeconds(1);
+            _checkCoreWindowTimer.Tick += async (s, e) =>
             {
-                if (borders.Count <= cuantityRectsCircle)
+                if (listBordersAnimation.Count <= cuantityRectsCircle)
                 {
                     int randomNumber = random.Next(0, listRectsCircles.Count);
                     int randomRed = random.Next(0, 256);
@@ -251,18 +222,18 @@ namespace ProjectTSSI
                     int randomGreen = random.Next(0, 256);
                     Border borderAdd = GenerateCircles(listRectsCircles[randomNumber], randomRed, randomBlue, randomGreen);
                     await borderAdd.FadeTo(1, 1000, Easing.Linear);
-                    borders.Add(borderAdd);
+                    listBordersAnimation.Add(borderAdd);
                 }
                 else
                 {
-                    int randomDelete = random.Next(0, borders.Count - 1);
-                    await borders[randomDelete].FadeTo(0, 1000);
-                    absoluteLayoutCircles.Children.Remove(borders[randomDelete]);
-                    borders.RemoveAt(randomDelete);
+                    int randomDelete = random.Next(0, listBordersAnimation.Count - 1);
+                    await listBordersAnimation[randomDelete].FadeTo(0, 1000);
+                    listBordersAnimation[randomDelete].AbortAnimation("ColorAnimation");
+                    absoluteLayoutCircles.Children.Remove(listBordersAnimation[randomDelete]);
+                    listBordersAnimation.RemoveAt(randomDelete);
                 }
-
             };
-            timer.Start();
+            _checkCoreWindowTimer.Start();
         }
         private Border GenerateCircles(Rect rect, int red, int blue, int green)
         {
@@ -319,23 +290,14 @@ namespace ProjectTSSI
                 switch (_indexImages)
                 {
                     case 0:
-                        animationImagesLogin.HeightRequest = (int)(_screenHeight * 0.412) / _screenDensity;
-                        animationImagesLogin.WidthRequest = (int)(_screenWidth * 0.22) / _screenDensity;
-                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(-(int)(_screenWidth * 0.005), -(int)(_screenHeight * 0.006), 0, 0));
                         _indexImages += 1;
                         break;
 
                     case 1:
-                        animationImagesLogin.HeightRequest = (int)(_screenHeight * 0.412) / _screenDensity;
-                        animationImagesLogin.WidthRequest = (int)(_screenWidth * 0.2) / _screenDensity;
-                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(-(int)(_screenWidth * 0.02), -(int)(_screenHeight * 0.001), 0, 0));
                         _indexImages += 1;
                         break;
 
                     case 2:
-                        animationImagesLogin.HeightRequest = (int)(_screenHeight * 0.412) / _screenDensity;
-                        animationImagesLogin.WidthRequest = (int)(_screenWidth * 0.22) / _screenDensity;
-                        AbsoluteLayout.SetLayoutBounds(animationImagesLogin, new Rect(-(int)(_screenWidth * 0.02), -(int)(_screenHeight * 0.005), 0, 0));
                         _indexImages = 0;
                         break;
                 }
@@ -370,7 +332,8 @@ namespace ProjectTSSI
                         // Crear el AbsoluteLayout principal
                         var innerAbsoluteLayout = new AbsoluteLayout
                         {
-                            HeightRequest = 35,
+                            VerticalOptions = LayoutOptions.Fill,
+                            HeightRequest = (int)((GlobalConstants.ScreenHeight * 0.034) / GlobalConstants.ScreenDensity)
                         };
                         AbsoluteLayout.SetLayoutBounds(innerAbsoluteLayout, new Rect(0, 23, 1, 0.1));
                         AbsoluteLayout.SetLayoutFlags(innerAbsoluteLayout, Microsoft.Maui.Layouts.AbsoluteLayoutFlags.WidthProportional);
@@ -378,7 +341,8 @@ namespace ProjectTSSI
                         var border = new Border
                         {
                             BackgroundColor = Color.FromArgb("#CD5C5C"),
-                            HeightRequest = 35,
+                            VerticalOptions = LayoutOptions.Fill,
+                            HorizontalOptions = LayoutOptions.Fill,
                             StrokeThickness = 0,
                             Padding = new Microsoft.Maui.Thickness(0)
                         };
@@ -395,7 +359,7 @@ namespace ProjectTSSI
                         {
                             Text = "El Correo Proporcionado No Es Valido",
                             FontFamily = "PoppinsRegular",
-                            FontSize = 11,
+                            FontSize = (int)((GlobalConstants.ScreenHeight * 0.0125) / GlobalConstants.ScreenDensity),
                             TextColor = Colors.White,
                             HorizontalTextAlignment = Microsoft.Maui.TextAlignment.Center,
                             HorizontalOptions = LayoutOptions.Fill,
@@ -451,7 +415,7 @@ namespace ProjectTSSI
 
         private async void OnUnfocusedUser(object sender, FocusEventArgs e)
         {
-            iconUser.Source = "user_icon_inactive.png";
+            iconUser.Source = "user_icon_innactive.png";
             await iconUser.ScaleTo(0.6, 300, Easing.CubicIn);
             await iconUser.ScaleTo(1.0, 250, Easing.CubicOut);
         }
@@ -465,43 +429,45 @@ namespace ProjectTSSI
 
         private async void OnUnfocusedPassword(object sender, FocusEventArgs e)
         {
-            iconPassword.Source = "password_icon_inactive.png";
+            iconPassword.Source = "password_icon_innactive.png";
             await iconPassword.ScaleTo(0.6, 300, Easing.CubicIn);
             await iconPassword.ScaleTo(1.0, 250, Easing.CubicOut);
         }
 
         private async void OnClickHandler(object sender, EventArgs e)
         {
-            if (sender is Label label)
+            if (sender is CustomLabel label)
             {
-                if (label.AutomationId == "LabelRegister")
+                if (label.AutomationId == "label_register")
                 {
                     try
                     {
                         await AnimationStackFadeReg();
                         await SwapPositionsBorders();
                         await Task.Delay(200);
-                        Microsoft.Maui.Controls.Application.Current.MainPage = new RegisterWS();
+                        var page = GlobalConstants.ServiceProvider.GetRequiredService<RegisterWS>();
+                        Microsoft.Maui.Controls.Application.Current.MainPage = page;
+
                     }
                     catch (System.Exception ex)
                     {
-                        DisplayAlert("ERROR", ex.Message, "OK");
+                        Logger.Log($"ERROR:{ex.Message}");
                     }
                 }
-                else if (label.AutomationId == "LabelEnterWithOut")
+                else if (label.AutomationId == "label_enter_without")
                 {
                     LoaderPrincipalPage.BackgroundColor = Color.FromArgb("#7e7e7e");
                     LoaderPrincipalPage.Opacity = 0.5;
-                    LoaderPrincipalPage.VerticalOptions = LayoutOptions.FillAndExpand;
-                    LoaderPrincipalPage.HorizontalOptions = LayoutOptions.FillAndExpand;
+                    LoaderPrincipalPage.VerticalOptions = LayoutOptions.Fill;
+                    LoaderPrincipalPage.HorizontalOptions = LayoutOptions.Fill;
 
                     var gifLoader = new FFImageLoading.Maui.CachedImage
                     {
                         Source = "loader_principal_page.gif", // Reemplaza con el nombre de tu GIF en Resources
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
-                        WidthRequest = 64,
-                        HeightRequest = 64,
+                        WidthRequest = (int)((GlobalConstants.ScreenWidth * 0.065) / GlobalConstants.ScreenDensity),
+                        HeightRequest = (int)((GlobalConstants.ScreenHeight * 0.065) / GlobalConstants.ScreenDensity),
                         Aspect = Aspect.AspectFit
                     };
 
@@ -511,25 +477,26 @@ namespace ProjectTSSI
                     LoaderPrincipalPage.Children.Add(gifLoader);
                     LoaderPrincipalPage.IsVisible = true;
                     await Task.Delay(10000);
-                    Microsoft.Maui.Controls.Application.Current.MainPage = new PrincipalPage();
+                    Microsoft.Maui.Controls.Application.Current.MainPage = new HomePage();
                 }
             }
-            if (sender is Button button)
+            if (sender is CustomButton button)
             {
-                if (button.AutomationId == "ButtonToLogin" && IsButtonLoginActive)
+                Logger.Log($"Es un custom Button");
+                if (button.AutomationId == "button_login" && IsButtonLoginActive)
                 {
                     LoaderPrincipalPage.BackgroundColor = Color.FromArgb("#7e7e7e");
                     LoaderPrincipalPage.Opacity = 0.5;
-                    LoaderPrincipalPage.VerticalOptions = LayoutOptions.FillAndExpand;
-                    LoaderPrincipalPage.HorizontalOptions = LayoutOptions.FillAndExpand;
+                    LoaderPrincipalPage.VerticalOptions = LayoutOptions.Fill;
+                    LoaderPrincipalPage.HorizontalOptions = LayoutOptions.Fill;
 
                     var gifLoader = new FFImageLoading.Maui.CachedImage
                     {
                         Source = "loader_principal_page.gif", // Reemplaza con el nombre de tu GIF en Resources
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
-                        WidthRequest = 64,
-                        HeightRequest = 64,
+                        WidthRequest = (int)((GlobalConstants.ScreenWidth * 0.065) / GlobalConstants.ScreenDensity),
+                        HeightRequest = (int)((GlobalConstants.ScreenHeight * 0.065) / GlobalConstants.ScreenDensity),
                         Aspect = Aspect.AspectFit
                     };
 
@@ -539,7 +506,7 @@ namespace ProjectTSSI
                     LoaderPrincipalPage.Children.Add(gifLoader);
                     LoaderPrincipalPage.IsVisible = true;
                     await Task.Delay(10000);
-                    Microsoft.Maui.Controls.Application.Current.MainPage = new PrincipalPage();
+                    Microsoft.Maui.Controls.Application.Current.MainPage = new HomePage();
                 }
             }
         }

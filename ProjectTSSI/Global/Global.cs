@@ -17,7 +17,8 @@ public static class GlobalConstants
     public static double ScreenHeight { get; set; }
     public static double ScreenDensity { get; set; }
     public static bool IsDebugMode { get; set; }
-    public static readonly string ConfigPath = "Resources/JsonsConfigs/CustomComponents.json";
+    public static IServiceProvider ServiceProvider { get; set; }
+    public static readonly string ConfigPath = "Resources/JsonsConfigs/";
     public static DebugInspector DebugInspector { get; set; }
     public static List<object> CustomComponent { get; set; } = new List<object>();
     public static List<object> CustomComponentWithOutChanges { get; set; } = new List<object>();
@@ -57,14 +58,14 @@ public static class GlobalMethods
         //add more for more objects custom bindable
         return null;
     }
-    public static void LoadJsonConfigurations(Dictionary<string, INotifyPropertyChanged> Configurations)
+    public static void LoadJsonConfigurations(Dictionary<string, INotifyPropertyChanged> Configurations, string completePath)
     {
-        if (!File.Exists(GlobalConstants.ConfigPath))
+        if (!File.Exists(GlobalConstants.ConfigPath + completePath))
         {
             Logger.Log("No se encontro el archivo");
-            File.WriteAllText(GlobalConstants.ConfigPath, "{}");
+            File.WriteAllText(GlobalConstants.ConfigPath + completePath, "{}");
         }
-        var json = File.ReadAllText(GlobalConstants.ConfigPath);
+        var json = File.ReadAllText(GlobalConstants.ConfigPath + completePath);
         var dict = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(json);
         foreach (var kvp in dict)
         {
@@ -72,10 +73,10 @@ public static class GlobalMethods
             if (type == null) continue;
             var configObject = (INotifyPropertyChanged)JsonSerializer.Deserialize(kvp.Value.GetRawText(), type);
             Configurations[kvp.Key] = configObject;
-            configObject.PropertyChanged += (_, _) => GlobalMethods.SaveConfig(Configurations);
+            configObject.PropertyChanged += (_, _) => GlobalMethods.SaveConfig(Configurations, completePath);
         }
     }
-    public static void SaveConfig(Dictionary<string, INotifyPropertyChanged> Configurations)
+    public static void SaveConfig(Dictionary<string, INotifyPropertyChanged> Configurations, string completePath)
     {
         var serialized = new Dictionary<string, object>();
         foreach (var (key, value) in Configurations)
@@ -87,7 +88,7 @@ public static class GlobalMethods
             WriteIndented = true,
             Converters = { new ObjectToInferredTypeConverter() }
         });
-        File.WriteAllText(GlobalConstants.ConfigPath, json);
+        File.WriteAllText(GlobalConstants.ConfigPath + completePath, json);
     }
     public static Thickness ConvertThicknessFromString(string thicknessString)
     {

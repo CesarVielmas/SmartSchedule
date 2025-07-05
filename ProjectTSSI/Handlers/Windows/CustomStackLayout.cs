@@ -9,11 +9,13 @@ namespace ProjectTSSI.Handlers.Windows;
 
 public class CustomStackLayout : StackLayout, IDisposable, ITapCustomComponent
 {
+    private TapGestureRecognizer _debugTap;
+
     public CustomStackLayout()
     {
-        var tapGesture = new TapGestureRecognizer();
-        tapGesture.Tapped += GlobalMethods.OnGlobalTapDebug;
-        this.GestureRecognizers.Add(tapGesture);
+        _debugTap = new TapGestureRecognizer();
+        _debugTap.Tapped += GlobalMethods.OnGlobalTapDebug;
+        this.GestureRecognizers.Add(_debugTap);
     }
     #region  Properties
     public static readonly BindableProperty ResponsiveConfigProperty =
@@ -149,6 +151,10 @@ public class CustomStackLayout : StackLayout, IDisposable, ITapCustomComponent
         {
             this.WidthRequest = (int)((GlobalConstants.ScreenWidth * ResponsiveConfig.WidthPercentage) / GlobalConstants.ScreenDensity);
             this.HeightRequest = (int)((GlobalConstants.ScreenHeight * ResponsiveConfig.HeightPercentage) / GlobalConstants.ScreenDensity);
+            if (this.WidthRequest == 0)
+                this.WidthRequest = -1;
+            if (this.HeightRequest == 0)
+                this.HeightRequest = -1;
             this.Margin = GlobalMethods.ConvertThicknessFromString(ResponsiveConfig.MarginPercentage);
             this.Padding = GlobalMethods.ConvertThicknessFromString(ResponsiveConfig.PaddingPercentage);
             this.MinimumWidthRequest = (int)((GlobalConstants.ScreenWidth * ResponsiveConfig.MinimumWidthRequestPercentage) / GlobalConstants.ScreenDensity);
@@ -173,6 +179,12 @@ public class CustomStackLayout : StackLayout, IDisposable, ITapCustomComponent
             ResponsiveConfig.PropertyChanged -= OnConfigPropertyChanged;
         if (StackLayoutResponsiveConfig != null)
             StackLayoutResponsiveConfig.PropertyChanged -= OnStackLayoutConfigPropertyChanged;
+        if (_debugTap != null)
+        {
+            _debugTap.Tapped -= GlobalMethods.OnGlobalTapDebug;
+            this.GestureRecognizers.Remove(_debugTap);
+            _debugTap = null;
+        }
     }
     #endregion
 }

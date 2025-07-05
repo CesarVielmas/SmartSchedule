@@ -1,39 +1,123 @@
-<StackLayout xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-                        <Label Text="Segundo Paso" Style="{StaticResource SubttitleLogin}" TextColor="#979eb3" Margin="0,15,0,0" />
-                        <Label Text="INFORMACION DE CONTACTO" Style="{StaticResource TittleLogin}" TextColor="#707789" Margin="0,2,0,3" />
-                        <Label Text="En esta sección, te pedimos que proporciones tus datos de contacto esta información es crucial para crear su cuenta y acceder a ella"  Style="{StaticResource SubttitleLogin}" Margin="0,0,0,10" Padding="20,0,20,0" />
-                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
-                            <AbsoluteLayout x:Name="ErrorMail" HeightRequest="35"> 
-                        
-                            </AbsoluteLayout>
-                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
-                                <Entry x:Name="entryMail" Placeholder="Correo Electronico" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="{Binding RegisterMailText}" Style="{StaticResource PlaceHolderLogin}" />
-                            </Frame>
-                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
-                                <Image x:Name="iconMail" Source="user_icon_inactive.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
-                            </AbsoluteLayout>
-                        </Grid>
-                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
-                            <AbsoluteLayout x:Name="ErrorPassword" HeightRequest="35">
-
-                            </AbsoluteLayout>
-                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
-                                <Entry x:Name="entryPassword" Placeholder="Contraseña" HorizontalOptions="FillAndExpand" Text="{Binding RegisterPasswordText}" IsPassword="True" VerticalOptions="Center" Style="{StaticResource PlaceHolderLogin}" />
-                            </Frame>
-                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
-                                <Image x:Name="iconPassword" Source="password_icon_inactive.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
-                            </AbsoluteLayout>
-                        </Grid>
-                        <Grid HorizontalOptions="FillAndExpand" Padding="50,0,50,0" Margin="0,10,0,10">
-                            <AbsoluteLayout x:Name="ErrorConfirmPassword" HeightRequest="35"> 
-                        
-                            </AbsoluteLayout>
-                            <Frame Padding="55,0,0,0" CornerRadius="15" BorderColor="#e6e2fd" BackgroundColor="#e6e2fd" HeightRequest="65">
-                                <Entry x:Name="entryConfirmPassword" Placeholder="Confirmar Contraseña" HorizontalOptions="FillAndExpand" IsPassword="True" VerticalOptions="Center" Text="{Binding RegisterConfirmPasswordText}" Style="{StaticResource PlaceHolderLogin}" />
-                            </Frame>
-                            <AbsoluteLayout WidthRequest="30" HorizontalOptions="Start">
-                                <Image x:Name="iconConfirmPassword" Source="confirm_password_icon_innactive.png"  WidthRequest="30" HeightRequest="30" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
-                            </AbsoluteLayout>
-                        </Grid>
-</StackLayout>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ProjectTSSI.Handlers.Windows"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:ProjectTSSI"
+             x:Class="ProjectTSSI.RegisterPart2"
+             NavigationPage.HasNavigationBar="False">
+    <custom:CustomStackLayout AutomationId="stack_register_form"
+                              x:Name="registerStackPrincipal"
+                              ResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_form_ResponsiveConfig}"
+                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_form_StackLayoutResponsiveConfig}">
+        <custom:CustomLabel AutomationId="label_step_title"
+                            Text="Segundo Paso"
+                            Style="{StaticResource SubttitleLogin}"
+                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_step_title_ResponsiveConfig}"
+                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_step_title_LabelResponsiveConfig}"
+                            HorizontalOptions="Fill" />
+        <custom:CustomLabel AutomationId="label_personal_info_title"
+                            Text="INFORMACION DE CONTACTO"
+                            Style="{StaticResource TittleLogin}"
+                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_personal_info_title_ResponsiveConfig}"
+                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_personal_info_title_LabelResponsiveConfig}" />
+        <custom:CustomLabel AutomationId="label_description"
+                            Text="En esta sección, te pedimos que proporciones tus datos de contacto esta información es crucial para crear su cuenta y acceder a ella"
+                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_description_ResponsiveConfig}"
+                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_description_LabelResponsiveConfig}"
+                            Style="{StaticResource SubttitleLogin}"
+                            HorizontalOptions="Fill" />
+        <custom:CustomGrid AutomationId="grid_mail"
+                           ResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_field_ResponsiveConfig}"
+                           GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_field_GridResponsiveConfig}">
+            <custom:CustomAbsoluteLayout x:Name="absoluteErrorMail"
+                                         AutomationId="absolute_layout_error_mail"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_error_ResponsiveConfig}" />
+            <custom:CustomFrame AutomationId="frame_entry_mail"
+                                ResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_field_ResponsiveConfig}"
+                                FrameResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_field_FrameResponsiveConfig}"
+                                HorizontalOptions="Fill">
+                <custom:CustomEntry AutomationId="entry_mail"
+                                    Placeholder="Correo Electrónico"
+                                    x:Name="entryMail"
+                                    Text="{Binding RegisterMailText}"
+                                    ResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_ResponsiveConfig}"
+                                    EntryResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_EntryResponsiveConfig}"
+                                    LabelResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_LabelResponsiveConfig}"
+                                    Focused="OnEntryFocus"
+                                    Unfocused="OnEntryFocus" />
+            </custom:CustomFrame>
+            <custom:CustomAbsoluteLayout AutomationId="absolute_layout_icon_mail"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_icon_ResponsiveConfig}"
+                                         HorizontalOptions="Start">
+                <custom:CustomImage AutomationId="icon_mail"
+                                    Source="user_icon_innactive.png"
+                                    ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_icon_ResponsiveConfig}"
+                                    ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_icon_ImageResponsiveConfig}"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,0,-1, -1" />
+            </custom:CustomAbsoluteLayout>
+        </custom:CustomGrid>
+        <custom:CustomGrid AutomationId="grid_password"
+                           ResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_field_ResponsiveConfig}"
+                           GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_field_GridResponsiveConfig}">
+            <custom:CustomAbsoluteLayout x:Name="absoluteErrorPassword"
+                                         AutomationId="absolute_layout_error_password"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_error_ResponsiveConfig}" />
+            <custom:CustomFrame AutomationId="frame_entry_password"
+                                ResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_field_ResponsiveConfig}"
+                                FrameResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_field_FrameResponsiveConfig}"
+                                HorizontalOptions="Fill">
+                <custom:CustomEntry AutomationId="entry_password"
+                                    Placeholder="Contraseña"
+                                    x:Name="entryPassword"
+                                    Text="{Binding RegisterPasswordText}"
+                                    ResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_ResponsiveConfig}"
+                                    EntryResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_EntryResponsiveConfig}"
+                                    LabelResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_LabelResponsiveConfig}"
+                                    Focused="OnEntryFocus"
+                                    Unfocused="OnEntryFocus" />
+            </custom:CustomFrame>
+            <custom:CustomAbsoluteLayout AutomationId="absolute_layout_icon_password"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_icon_ResponsiveConfig}"
+                                         HorizontalOptions="Start">
+                <custom:CustomImage AutomationId="icon_password"
+                                    Source="password_icon_innactive.png"
+                                    ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_icon_ResponsiveConfig}"
+                                    ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_icon_ImageResponsiveConfig}"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,0,-1, -1" />
+            </custom:CustomAbsoluteLayout>
+        </custom:CustomGrid>
+        <custom:CustomGrid AutomationId="grid_confirm_password"
+                           ResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_field_ResponsiveConfig}"
+                           GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_field_GridResponsiveConfig}">
+            <custom:CustomAbsoluteLayout x:Name="absoluteErrorConfirmPassword"
+                                         AutomationId="absolute_layout_error_confirm_password"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_error_ResponsiveConfig}" />
+            <custom:CustomFrame AutomationId="frame_entry_confirm_password"
+                                ResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_field_ResponsiveConfig}"
+                                FrameResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_field_FrameResponsiveConfig}"
+                                HorizontalOptions="Fill">
+                <custom:CustomEntry AutomationId="entry_confirm_password"
+                                    Placeholder="Confirmar Contraseña"
+                                    x:Name="entryConfirmPassword"
+                                    Text="{Binding RegisterConfirmPasswordText}"
+                                    ResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_ResponsiveConfig}"
+                                    EntryResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_EntryResponsiveConfig}"
+                                    LabelResponsiveConfig="{custom:CustomConfigBinding Key=entry_register_field_LabelResponsiveConfig}"
+                                    Focused="OnEntryFocus"
+                                    Unfocused="OnEntryFocus" />
+            </custom:CustomFrame>
+            <custom:CustomAbsoluteLayout AutomationId="absolute_layout_icon_confirm_password"
+                                         ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_icon_ResponsiveConfig}"
+                                         HorizontalOptions="Start">
+                <custom:CustomImage AutomationId="icon_confirm_password"
+                                    Source="confirm_password_icon_innactive.png"
+                                    ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_icon_ResponsiveConfig}"
+                                    ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_icon_ImageResponsiveConfig}"
+                                    VerticalOptions="Center"
+                                    AbsoluteLayout.LayoutBounds="0,0,-1, -1" />
+            </custom:CustomAbsoluteLayout>
+        </custom:CustomGrid>
+    </custom:CustomStackLayout>
+</ContentView>

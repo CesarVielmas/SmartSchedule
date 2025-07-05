@@ -5,33 +5,33 @@
              xmlns:local="clr-namespace:ProjectTSSI"
              xmlns:resx="clr-namespace:ProjectTSSI.Handlers"
              x:Class="ProjectTSSI.LoginWS"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <!-- Grid Principal -->
-    <Grid x:Name="principalGrid"
-          RowSpacing="0"
-          VerticalOptions="FillAndExpand"
-          HorizontalOptions="FillAndExpand"
-          Padding="50"
-          BackgroundColor="#e6e2fd">
+    <custom:CustomGrid x:Name="principalGrid"
+                       AutomationId="principal_grid"
+                       ResponsiveConfig="{custom:CustomConfigBinding Key=principal_grid_ResponsiveConfig}"
+                       GridResponsiveConfig="{custom:CustomConfigBinding Key=principal_grid_GridResponsiveConfig}"
+                       HorizontalOptions="Fill"
+                       VerticalOptions="Fill">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*" />
-            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <!-- Contenedor AbsoluteLayout para círculos -->
-        <AbsoluteLayout Grid.Column="0"
-                        x:Name="absoluteLayoutCircles"
-                        Grid.Row="0"
-                        Grid.ColumnSpan="2"
-                        AbsoluteLayout.LayoutBounds="0,0,1,1"
-                        AbsoluteLayout.LayoutFlags="All">
+        <custom:CustomAbsoluteLayout Grid.Column="0"
+                                     x:Name="absoluteLayoutCircles"
+                                     AutomationId="absolute_layout_circles"
+                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_circles_ResponsiveConfig}"
+                                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                     AbsoluteLayout.LayoutFlags="All">
             <!-- Círculo Posicionado Libremente -->
-            <Frame CornerRadius="50"
-                   WidthRequest="75"
-                   HeightRequest="75"
-                   AbsoluteLayout.LayoutBounds="-.040,-.105,100,100"
-                   AbsoluteLayout.LayoutFlags="PositionProportional"
-                   ZIndex="0">
-                <Frame.Background>
+            <custom:CustomFrame AutomationId="circle_frame_1"
+                                ResponsiveConfig="{custom:CustomConfigBinding Key=circle_frame_1_ResponsiveConfig}"
+                                FrameResponsiveConfig="{custom:CustomConfigBinding Key=circle_frame_1_FrameResponsiveConfig}"
+                                AbsoluteLayout.LayoutBounds="-.042,-.075,-1,-1"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                ZIndex="0">
+                <custom:CustomFrame.Background>
                     <RadialGradientBrush Radius="0.8">
                         <RadialGradientBrush.Center>
                             <Point X="0.7"
@@ -42,261 +42,259 @@
                         <GradientStop Color="#6852d8"
                                       Offset="1.0" />
                     </RadialGradientBrush>
-                </Frame.Background>
-            </Frame>
-            <Border Stroke="White"
-                    StrokeThickness="2"
-                    BackgroundColor="White"
-                    AbsoluteLayout.LayoutBounds="1.032,1.06,80,80"
-                    AbsoluteLayout.LayoutFlags="PositionProportional"
-                    WidthRequest="80"
-                    HeightRequest="80">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="50" />
-                </Border.StrokeShape>
-            </Border>
+                </custom:CustomFrame.Background>
+            </custom:CustomFrame>
+            <custom:CustomBorder AutomationId="circle_border_1"
+                                 ResponsiveConfig="{custom:CustomConfigBinding Key=circle_border_1_ResponsiveConfig}"
+                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=circle_border_1_BorderResponsiveConfig}"
+                                 ZIndex="0"
+                                 AbsoluteLayout.LayoutBounds="1.04,1.05,-1,-1"
+                                 AbsoluteLayout.LayoutFlags="PositionProportional" />
             <!-- StackLayout 1 -->
-            <Border x:Name="BorderLayoutLoginPart1"
-                    Stroke="Transparent"
-                    StrokeThickness="0"
-                    BackgroundColor="White"
-                    AbsoluteLayout.LayoutBounds="0,0,0.5,1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    ZIndex="2">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="18,0,18,0" />
-                </Border.StrokeShape>
-                <Border.Shadow>
-                    <Shadow Brush="#6f60bb"
-                            Opacity="0.5"
-                            Offset="5,3"
-                            Radius="15" />
-                </Border.Shadow>
-                <StackLayout x:Name="StackLoginPart1"
-                             Padding="20"
-                             BackgroundColor="White"
-                             VerticalOptions="FillAndExpand"
-                             HorizontalOptions="FillAndExpand">
-                    <Label x:Name="tittleLoginText"
-                           Text="{resx:TranslateExtension TittleLogin}"
-                           Style="{StaticResource TittleLogin}" />
-                    <Label x:Name="secondTittleLoginText"
-                           Text="{resx:TranslateExtension SecondTittleLogin}"
-                           Style="{StaticResource SubttitleLogin}" />
-                    <Grid x:Name="gridMailUser"
-                          HorizontalOptions="FillAndExpand"
-                          Padding="50,0,50,0"
-                          Margin="0,10,0,10">
-                        <AbsoluteLayout x:Name="ErrorMail"
-                                        HeightRequest="35" />
-                        <Frame x:Name="frameMailUser"
-                               Padding="55,0,0,0"
-                               CornerRadius="15"
-                               BorderColor="#e6e2fd"
-                               BackgroundColor="#e6e2fd"
-                               HeightRequest="65">
-                            <Entry x:Name="entryUser"
-                                   Placeholder="{resx:TranslateExtension MailLoginTittle}"
-                                   Focused="OnFocusedUser"
-                                   Unfocused="OnUnfocusedUser"
-                                   HorizontalOptions="FillAndExpand"
-                                   VerticalOptions="Center"
-                                   Text="{Binding LoginUserText}"
-                                   Style="{StaticResource PlaceHolderLogin}" />
-                        </Frame>
-                        <AbsoluteLayout x:Name="absolouteLayoutIconUser"
-                                        WidthRequest="30"
-                                        HorizontalOptions="Start">
-                            <Image x:Name="iconUser"
-                                   Source="user_icon_inactive.png"
-                                   WidthRequest="30"
-                                   HeightRequest="30"
-                                   VerticalOptions="Center"
-                                   AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
-                        </AbsoluteLayout>
-                    </Grid>
-                    <Grid x:Name="gridPasswordUser"
-                          HorizontalOptions="FillAndExpand"
-                          Padding="50,0,50,0"
-                          Margin="0,10,0,10">
-                        <AbsoluteLayout x:Name="ErrorPassword"
-                                        HeightRequest="35" />
-                        <Frame x:Name="framePassword"
-                               Padding="55,0,0,0"
-                               CornerRadius="15"
-                               BorderColor="#e6e2fd"
-                               BackgroundColor="#e6e2fd"
-                               HeightRequest="65">
-                            <Entry x:Name="entryPassword"
-                                   Placeholder="{resx:TranslateExtension PasswordLoginTittle}"
-                                   Focused="OnFocusedPassword"
-                                   Unfocused="OnUnfocusedPassword"
-                                   IsPassword="True"
-                                   HorizontalOptions="FillAndExpand"
-                                   Text="{Binding LoginPasswordText}"
-                                   VerticalOptions="Center"
-                                   Style="{StaticResource PlaceHolderLogin}" />
-                        </Frame>
-                        <AbsoluteLayout x:Name="absolouteLayoutIconPassword"
-                                        WidthRequest="30"
-                                        HorizontalOptions="Start">
-                            <Image x:Name="iconPassword"
-                                   Source="password_icon_inactive.png"
-                                   WidthRequest="30"
-                                   HeightRequest="30"
-                                   VerticalOptions="Center"
-                                   AbsoluteLayout.LayoutBounds="20, 16,30, 30" />
-                        </AbsoluteLayout>
-                    </Grid>
-                    <StackLayout HorizontalOptions="FillAndExpand"
-                                 Padding="90,0,90,0">
-                        <Button x:Name="buttonLogin"
-                                AutomationId="ButtonToLogin"
-                                Text="{resx:TranslateExtension EnterLoginTittle}"
-                                IsEnabled="{Binding _isButtonLoginActive}"
-                                Style="{StaticResource ButtonLogin}">
+            <custom:CustomBorder x:Name="BorderLayoutLoginPart1"
+                                 AutomationId="border_login_part1"
+                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_login_part1_ResponsiveConfig}"
+                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_login_part1_BorderResponsiveConfig}"
+                                 AbsoluteLayout.LayoutBounds="0,0,0.5,1"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 ZIndex="1">
+                <custom:CustomStackLayout x:Name="StackLoginPart1"
+                                          AutomationId="stack_login_part1"
+                                          ResponsiveConfig="{custom:CustomConfigBinding Key=stack_login_part1_ResponsiveConfig}"
+                                          StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_login_part1_StackLayoutResponsiveConfig}"
+                                          VerticalOptions="Fill"
+                                          HorizontalOptions="Fill">
+                    <custom:CustomLabel x:Name="tittleLoginText"
+                                        AutomationId="label_tittle_login"
+                                        ResponsiveConfig="{custom:CustomConfigBinding Key=label_tittle_login_ResponsiveConfig}"
+                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_tittle_login_LabelResponsiveConfig}"
+                                        HorizontalOptions="Fill"
+                                        Text="{resx:TranslateExtension TittleLogin}"
+                                        Style="{StaticResource TittleLogin}" />
+                    <custom:CustomLabel x:Name="secondTittleLoginText"
+                                        AutomationId="label_second_tittle_login"
+                                        ResponsiveConfig="{custom:CustomConfigBinding Key=label_second_tittle_login_ResponsiveConfig}"
+                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_second_tittle_login_LabelResponsiveConfig}"
+                                        HorizontalOptions="Fill"
+                                        Text="{resx:TranslateExtension SecondTittleLogin}"
+                                        Style="{StaticResource SubttitleLogin}" />
+                    <custom:CustomGrid x:Name="gridMailUser"
+                                       AutomationId="grid_mail_user"
+                                       ResponsiveConfig="{custom:CustomConfigBinding Key=grid_mail_user_ResponsiveConfig}"
+                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_mail_user_GridResponsiveConfig}"
+                                       HorizontalOptions="Fill">
+                        <custom:CustomAbsoluteLayout x:Name="ErrorMail"
+                                                     AutomationId="absolute_layout_error_mail"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_error_mail_ResponsiveConfig}" />
+                        <custom:CustomFrame x:Name="frameMailUser"
+                                            AutomationId="frame_mail_user"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=frame_mail_user_ResponsiveConfig}"
+                                            FrameResponsiveConfig="{custom:CustomConfigBinding Key=frame_mail_user_FrameResponsiveConfig}"
+                                            VerticalOptions="Fill">
+                            <custom:CustomEntry x:Name="entryUser"
+                                                AutomationId="entry_user"
+                                                ResponsiveConfig="{custom:CustomConfigBinding Key=entry_user_ResponsiveConfig}"
+                                                EntryResponsiveConfig="{custom:CustomConfigBinding Key=entry_user_EntryResponsiveConfig}"
+                                                LabelResponsiveConfig="{custom:CustomConfigBinding Key=entry_user_LabelResponsiveConfig}"
+                                                Placeholder="{resx:TranslateExtension MailLoginTittle}"
+                                                Focused="OnFocusedUser"
+                                                Unfocused="OnUnfocusedUser"
+                                                HorizontalOptions="Fill"
+                                                VerticalOptions="Center"
+                                                Text="{Binding LoginUserText}"
+                                                Style="{StaticResource PlaceHolderLogin}" />
+                        </custom:CustomFrame>
+                        <custom:CustomAbsoluteLayout x:Name="absolouteLayoutIconUser"
+                                                     AutomationId="absolute_layout_icon_user"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_icon_user_ResponsiveConfig}"
+                                                     HorizontalOptions="Start">
+                            <custom:CustomImage x:Name="iconUser"
+                                                AutomationId="image_icon_user"
+                                                ResponsiveConfig="{custom:CustomConfigBinding Key=image_icon_user_ResponsiveConfig}"
+                                                ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_icon_user_ImageResponsiveConfig}"
+                                                Source="user_icon_innactive.png"
+                                                VerticalOptions="Center"
+                                                AbsoluteLayout.LayoutBounds="0,0,-1, -1" />
+                        </custom:CustomAbsoluteLayout>
+                    </custom:CustomGrid>
+                    <custom:CustomGrid x:Name="gridPasswordUser"
+                                       AutomationId="grid_password_user"
+                                       ResponsiveConfig="{custom:CustomConfigBinding Key=grid_password_user_ResponsiveConfig}"
+                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_password_user_GridResponsiveConfig}"
+                                       HorizontalOptions="Fill"
+                                       Padding="50,0,50,0"
+                                       Margin="0,10,0,10">
+                        <custom:CustomAbsoluteLayout x:Name="ErrorPassword"
+                                                     AutomationId="absolute_layout_error_password"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_error_mail_ResponsiveConfig}" />
+                        <custom:CustomFrame x:Name="framePassword"
+                                            AutomationId="frame_password"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=frame_password_ResponsiveConfig}"
+                                            FrameResponsiveConfig="{custom:CustomConfigBinding Key=frame_password_FrameResponsiveConfig}"
+                                            Padding="55,0,0,0"
+                                            CornerRadius="15"
+                                            BorderColor="#e6e2fd"
+                                            BackgroundColor="#e6e2fd"
+                                            HeightRequest="65">
+                            <custom:CustomEntry x:Name="entryPassword"
+                                                AutomationId="entry_password"
+                                                ResponsiveConfig="{custom:CustomConfigBinding Key=entry_user_ResponsiveConfig}"
+                                                EntryResponsiveConfig="{custom:CustomConfigBinding Key=entry_user_EntryResponsiveConfig}"
+                                                LabelResponsiveConfig="{custom:CustomConfigBinding Key=entry_user_LabelResponsiveConfig}"
+                                                Placeholder="{resx:TranslateExtension PasswordLoginTittle}"
+                                                Focused="OnFocusedPassword"
+                                                Unfocused="OnUnfocusedPassword"
+                                                IsPassword="True"
+                                                HorizontalOptions="Fill"
+                                                VerticalOptions="Center"
+                                                Text="{Binding LoginPasswordText}"
+                                                Style="{StaticResource PlaceHolderLogin}" />
+                        </custom:CustomFrame>
+                        <custom:CustomAbsoluteLayout x:Name="absolouteLayoutIconPassword"
+                                                     AutomationId="absolute_layout_icon_password"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_icon_user_ResponsiveConfig}"
+                                                     HorizontalOptions="Start">
+                            <custom:CustomImage x:Name="iconPassword"
+                                                AutomationId="image_icon_password"
+                                                ResponsiveConfig="{custom:CustomConfigBinding Key=image_icon_user_ResponsiveConfig}"
+                                                ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_icon_user_ImageResponsiveConfig}"
+                                                Source="password_icon_innactive.png"
+                                                VerticalOptions="Center"
+                                                AbsoluteLayout.LayoutBounds="0,0,-1, -1" />
+                        </custom:CustomAbsoluteLayout>
+                    </custom:CustomGrid>
+                    <custom:CustomStackLayout AutomationId="stack_layout_button_login"
+                                              ResponsiveConfig="{custom:CustomConfigBinding Key=stack_layout_button_login_ResponsiveConfig}"
+                                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_layout_button_login_StackLayoutResponsiveConfig}"
+                                              HorizontalOptions="Fill">
+                        <custom:CustomButton x:Name="buttonLogin"
+                                             AutomationId="button_login"
+                                             ResponsiveConfig="{custom:CustomConfigBinding Key=button_login_ResponsiveConfig}"
+                                             ButtonResponsiveConfig="{custom:CustomConfigBinding Key=button_login_ButtonResponsiveConfig}"
+                                             LabelResponsiveConfig="{custom:CustomConfigBinding Key=button_login_LabelResponsiveConfig}"
+                                             VerticalOptions="Fill"
+                                             HorizontalOptions="Fill"
+                                             Text="{resx:TranslateExtension EnterLoginTittle}"
+                                             IsEnabled="{Binding _isButtonLoginActive}"
+                                             Style="{StaticResource ButtonLogin}">
                             <Button.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnClickHandler" />
                             </Button.GestureRecognizers>
-                        </Button>
-                    </StackLayout>
-                    <!-- <custom:CustomGrid AutomationId="custom_grid_padre"
-                                       BackgroundColor="Black"
-                                       ResponsiveConfig="{custom:CustomConfigBinding Key=custom_grid_padre_ResponsiveConfig}"
-                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=custom_grid_padre_GridResponsiveConfig}" />
-                    <custom:CustomStackLayout AutomationId="custom_stack_layout_padre"
-                                              BackgroundColor="Blue"
-                                              ResponsiveConfig="{custom:CustomConfigBinding Key=custom_stack_layout_padre_ResponsiveConfig}"
-                                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=custom_stack_layout_padre_StackLayoutResponsiveConfig}" />
-                    <custom:CustomLabel AutomationId="custom_label_padre"
-                                        Text="Holaaaaaaaaaaaaaaaaaaaaaaa"
-                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_label_padre_ResponsiveConfig}"
-                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=custom_label_padre_LabelResponsiveConfig}" />
-                    <custom:CustomAbsoluteLayout AutomationId="custom_absolute_layout_padre"
-                                                 BackgroundColor="Gray"
-                                                 ResponsiveConfig="{custom:CustomConfigBinding Key=custom_absolute_layout_padre_ResponsiveConfig}" />
-                    <custom:CustomFrame AutomationId="custom_frame_padre"
-                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_frame_padre_ResponsiveConfig}"
-                                        FrameResponsiveConfig="{custom:CustomConfigBinding Key=custom_frame_padre_FrameResponsiveConfig}" />
-                    <custom:CustomBorder AutomationId="custom_border_padre"
-                                         ResponsiveConfig="{custom:CustomConfigBinding Key=custom_border_padre_ResponsiveConfig}"
-                                         BorderResponsiveConfig="{custom:CustomConfigBinding Key=custom_border_padre_BorderResponsiveConfig}" />
-                    <custom:CustomEntry AutomationId="custom_entry_padre"
-                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_entry_padre_ResponsiveConfig}"
-                                        EntryResponsiveConfig="{custom:CustomConfigBinding Key=custom_entry_padre_EntryResponsiveConfig}"
-                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=custom_entry_padre_LabelResponsiveConfig}" />
-                    <custom:CustomImage AutomationId="custom_image_padre"
-                                        Source="https://i.pinimg.com/474x/4a/b3/af/4ab3af95b55c62fcfd5bee09e8913c50.jpg"
-                                        Aspect="Fill"
-                                        ResponsiveConfig="{custom:CustomConfigBinding Key=custom_image_padre_ResponsiveConfig}"
-                                        ImageResponsiveConfig="{custom:CustomConfigBinding Key=custom_image_padre_ImageResponsiveConfig}" />
-                    <custom:CustomButton AutomationId="custom_button_padre"
-                                         ResponsiveConfig="{custom:CustomConfigBinding Key=custom_button_padre_ResponsiveConfig}"
-                                         ButtonResponsiveConfig="{custom:CustomConfigBinding Key=custom_button_padre_ButtonResponsiveConfig}"
-                                         LabelResponsiveConfig="{custom:CustomConfigBinding Key=custom_button_padre_LabelResponsiveConfig}" />
-                    <custom:CustomBoxView AutomationId="custom_box_view_padre"
-                                          ResponsiveConfig="{custom:CustomConfigBinding Key=custom_box_view_padre_ResponsiveConfig}"
-                                          BoxViewResponsiveConfig="{custom:CustomConfigBinding Key=custom_box_view_padre_BoxViewResponsiveConfig}" /> -->
-                    <StackLayout x:Name="stackLayoutOptions"
-                                 HorizontalOptions="FillAndExpand"
-                                 Padding="50,0,50,0"
-                                 Margin="0,30,0,0">
-                        <BoxView Color="#b0b0b0"
-                                 HeightRequest="1"
-                                 HorizontalOptions="FillAndExpand" />
-                        <AbsoluteLayout HorizontalOptions="Center">
-                            <Label x:Name="labelOptionsLogin"
-                                   Text="{resx:TranslateExtension OptionsLoginTittle}"
-                                   WidthRequest="200"
-                                   BackgroundColor="White"
-                                   AbsoluteLayout.LayoutBounds="0,-12,-1,-1"
-                                   Style="{StaticResource SubttitleLogin}" />
-                        </AbsoluteLayout>
-                    </StackLayout>
-                    <Grid x:Name="gridSocialMedia"
-                          HorizontalOptions="FillAndExpand"
-                          HeightRequest="40">
+                        </custom:CustomButton>
+                    </custom:CustomStackLayout>
+                    <custom:CustomStackLayout x:Name="stackLayoutOptions"
+                                              AutomationId="stack_layout_options"
+                                              ResponsiveConfig="{custom:CustomConfigBinding Key=stack_layout_options_ResponsiveConfig}"
+                                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_layout_options_StackLayoutResponsiveConfig}"
+                                              HorizontalOptions="Fill"
+                                              Padding="50,0,50,0"
+                                              Margin="0,30,0,0">
+                        <custom:CustomBoxView AutomationId="box_view_divider"
+                                              ResponsiveConfig="{custom:CustomConfigBinding Key=box_view_divider_ResponsiveConfig}"
+                                              BoxViewResponsiveConfig="{custom:CustomConfigBinding Key=box_view_divider_BoxViewResponsiveConfig}"
+                                              Color="#b0b0b0"
+                                              HeightRequest="1"
+                                              HorizontalOptions="Fill" />
+                        <custom:CustomAbsoluteLayout HorizontalOptions="Center">
+                            <custom:CustomLabel x:Name="labelOptionsLogin"
+                                                AutomationId="label_options_login"
+                                                ResponsiveConfig="{custom:CustomConfigBinding Key=label_options_login_ResponsiveConfig}"
+                                                LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_options_login_LabelResponsiveConfig}"
+                                                Text="{resx:TranslateExtension OptionsLoginTittle}"
+                                                WidthRequest="200"
+                                                BackgroundColor="White"
+                                                AbsoluteLayout.LayoutBounds="0,-12,-1,-1"
+                                                Style="{StaticResource SubttitleLogin}" />
+                        </custom:CustomAbsoluteLayout>
+                    </custom:CustomStackLayout>
+                    <custom:CustomGrid x:Name="gridSocialMedia"
+                                       AutomationId="grid_social_media"
+                                       ResponsiveConfig="{custom:CustomConfigBinding Key=grid_social_media_ResponsiveConfig}"
+                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_social_media_GridResponsiveConfig}"
+                                       HorizontalOptions="Fill">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.25*" />
                             <ColumnDefinition Width="0.25*" />
                             <ColumnDefinition Width="0.25*" />
                             <ColumnDefinition Width="0.25*" />
                         </Grid.ColumnDefinitions>
-                        <Image Source="facebook_icon.png"
-                               Grid.Column="0"
-                               HeightRequest="40"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                        <Image Source="github_icon.png"
-                               Grid.Column="1"
-                               HeightRequest="40"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                        <Image Source="google_icon.png"
-                               Grid.Column="2"
-                               HeightRequest="40"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                        <Image Source="twitter_icon.png"
-                               Grid.Column="3"
-                               HeightRequest="40"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" />
-                    </Grid>
-                    <Grid x:Name="gridLastOptionsLogin"
-                          Margin="0,15,0,0">
+                        <custom:CustomImage AutomationId="image_facebook"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ResponsiveConfig}"
+                                            ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ImageResponsiveConfig}"
+                                            Source="facebook_icon.png"
+                                            Grid.Column="0"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                        <custom:CustomImage AutomationId="image_github"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ResponsiveConfig}"
+                                            ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ImageResponsiveConfig}"
+                                            Source="github_icon.png"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                        <custom:CustomImage AutomationId="image_google"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ResponsiveConfig}"
+                                            ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ImageResponsiveConfig}"
+                                            Source="google_icon.png"
+                                            Grid.Column="2"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                        <custom:CustomImage AutomationId="image_twitter"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ResponsiveConfig}"
+                                            ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_facebook_ImageResponsiveConfig}"
+                                            Source="twitter_icon.png"
+                                            Grid.Column="3"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                    </custom:CustomGrid>
+                    <custom:CustomGrid x:Name="gridLastOptionsLogin"
+                                       AutomationId="grid_last_options"
+                                       ResponsiveConfig="{custom:CustomConfigBinding Key=grid_last_options_ResponsiveConfig}"
+                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_last_options_GridResponsiveConfig}"
+                                       HorizontalOptions="Fill">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.5*" />
                             <ColumnDefinition Width="0.5*" />
                         </Grid.ColumnDefinitions>
-                        <Label AutomationId="LabelRegister"
-                               x:Name="labelRegister"
-                               Text="{resx:TranslateExtension RegisterLoginTittle}"
-                               Grid.Column="0"
-                               TextColor="#535cae"
-                               FontSize="11"
-                               FontFamily="PoppinsRegular"
-                               Style="{StaticResource SubttitleLogin}">
+                        <custom:CustomLabel AutomationId="label_register"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_register_ResponsiveConfig}"
+                                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_register_LabelResponsiveConfig}"
+                                            x:Name="labelRegister"
+                                            Text="{resx:TranslateExtension RegisterLoginTittle}"
+                                            Grid.Column="0"
+                                            FontFamily="PoppinsRegular"
+                                            Style="{StaticResource SubttitleLogin}">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnClickHandler" />
                             </Label.GestureRecognizers>
-                        </Label>
-                        <Label AutomationId="LabelEnterWithOut"
-                               x:Name="labelEnterWithOut"
-                               Text="{resx:TranslateExtension WithOutAccountLoginTittle}"
-                               Grid.Column="1"
-                               TextColor="#535cae"
-                               FontSize="11"
-                               FontFamily="PoppinsRegular"
-                               Style="{StaticResource SubttitleLogin}">
+                        </custom:CustomLabel>
+                        <custom:CustomLabel AutomationId="label_enter_without"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_register_ResponsiveConfig}"
+                                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_register_LabelResponsiveConfig}"
+                                            x:Name="labelEnterWithOut"
+                                            Text="{resx:TranslateExtension WithOutAccountLoginTittle}"
+                                            Grid.Column="1"
+                                            FontFamily="PoppinsRegular"
+                                            Style="{StaticResource SubttitleLogin}">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnClickHandler" />
                             </Label.GestureRecognizers>
-                        </Label>
-                    </Grid>
-                </StackLayout>
-            </Border>
+                        </custom:CustomLabel>
+                    </custom:CustomGrid>
+                </custom:CustomStackLayout>
+            </custom:CustomBorder>
             <!-- StackLayout 2 -->
-            <Border x:Name="BorderLayoutLoginPart2"
-                    Stroke="Transparent"
-                    StrokeThickness="0"
-                    BackgroundColor="#6852d8"
-                    AbsoluteLayout.LayoutBounds="1,0,0.5,1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    ZIndex="1">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="0,18,0,18" />
-                </Border.StrokeShape>
-                <Border.Shadow>
-                    <Shadow Brush="#6f60bb"
-                            Opacity="0.7"
-                            Offset="7,3"
-                            Radius="15" />
-                </Border.Shadow>
-                <StackLayout Padding="0"
-                             VerticalOptions="FillAndExpand"
-                             HorizontalOptions="FillAndExpand">
-                    <StackLayout.Background>
+            <custom:CustomBorder x:Name="BorderLayoutLoginPart2"
+                                 AutomationId="border_login_part2"
+                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_login_part2_ResponsiveConfig}"
+                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_login_part2_BorderResponsiveConfig}"
+                                 AbsoluteLayout.LayoutBounds="1,0,0.5,1"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 ZIndex="1">
+                <custom:CustomStackLayout Padding="0"
+                                          VerticalOptions="Fill"
+                                          HorizontalOptions="Fill">
+                    <custom:CustomStackLayout.Background>
                         <RadialGradientBrush>
                             <RadialGradientBrush.Center>
                                 <Point X="0.9"
@@ -307,51 +305,54 @@
                             <GradientStop Color="#6852d8"
                                           Offset="1.0" />
                         </RadialGradientBrush>
-                    </StackLayout.Background>
-                    <!-- Segundo StackLayout centrado y expandido -->
-                    <Grid HorizontalOptions="CenterAndExpand"
-                          VerticalOptions="CenterAndExpand">
-                        <Image Source="second_background_login.png"
-                               Opacity="0.5"
-                               Aspect="AspectFill"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"
-                               ZIndex="0" />
-                        <!-- Frame que permanecerá centrado -->
-                        <Frame x:Name="StackLoginPart2"
-                               CornerRadius="20"
-                               BackgroundColor="#10FFFFFF"
-                               BorderColor="White"
-                               HeightRequest="350"
-                               WidthRequest="280"
-                               HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="CenterAndExpand" />
-                        <!-- AbsoluteLayout que permite que la imagen se superponga al Frame Primera(130, -23, 280, 350) Segunda(20, -23, 280, 350) Tercera(Height="355",Width="340",0, -6, 280, 350) -->
-                        <AbsoluteLayout x:Name="StackLoginPart3"
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
-                            <Image x:Name="animationImagesLogin"
-                                   HeightRequest="350"
-                                   WidthRequest="280"
-                                   Aspect="AspectFill"
-                                   Source="login_image_one.png"
-                                   AbsoluteLayout.LayoutBounds="130, -23, 280, 350"
-                                   AbsoluteLayout.LayoutFlags="None" />
-                        </AbsoluteLayout>
-                    </Grid>
-                </StackLayout>
-            </Border>
-        </AbsoluteLayout>
-        <AbsoluteLayout x:Name="LoaderPrincipalPage"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        AbsoluteLayout.LayoutBounds="0,0,1,1"
-                        AbsoluteLayout.LayoutFlags="All"
-                        IsVisible="False" />
+                    </custom:CustomStackLayout.Background>
+                    <custom:CustomGrid HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand">
+                        <custom:CustomImage Source="second_background_login.png"
+                                            AutomationId="image_second_background"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=image_second_background_ResponsiveConfig}"
+                                            ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_second_background_ImageResponsiveConfig}"
+                                            Opacity="0.5"
+                                            Aspect="AspectFill"
+                                            HorizontalOptions="Fill"
+                                            VerticalOptions="Fill"
+                                            ZIndex="0" />
+                        <custom:CustomFrame x:Name="StackLoginPart2"
+                                            AutomationId="frame_login_part2"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=frame_login_part2_ResponsiveConfig}"
+                                            FrameResponsiveConfig="{custom:CustomConfigBinding Key=frame_login_part2_FrameResponsiveConfig}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand" />
+                        <custom:CustomAbsoluteLayout x:Name="StackLoginPart3"
+                                                     AutomationId="absolute_layout_login_part3"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_login_part3_ResponsiveConfig}"
+                                                     HorizontalOptions="Fill"
+                                                     VerticalOptions="Fill">
+                            <custom:CustomImage x:Name="animationImagesLogin"
+                                                AutomationId="image_login_animation"
+                                                ResponsiveConfig="{custom:CustomConfigBinding Key=image_login_animation_ResponsiveConfig}"
+                                                ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_login_animation_ImageResponsiveConfig}"
+                                                Aspect="AspectFill"
+                                                Source="login_image_three.png"
+                                                AbsoluteLayout.LayoutBounds="0.45,0.498, -1,-1"
+                                                AbsoluteLayout.LayoutFlags="PositionProportional" />
+                        </custom:CustomAbsoluteLayout>
+                    </custom:CustomGrid>
+                </custom:CustomStackLayout>
+            </custom:CustomBorder>
+        </custom:CustomAbsoluteLayout>
+        <custom:CustomAbsoluteLayout x:Name="LoaderPrincipalPage"
+                                     AutomationId="loader_principal_page"
+                                     ResponsiveConfig="{custom:CustomConfigBinding Key=loader_principal_page_ResponsiveConfig}"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="2"
+                                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                     AbsoluteLayout.LayoutFlags="All"
+                                     IsVisible="False" />
         <custom:DebugInspector Grid.Row="0"
                                VerticalOptions="Start"
                                Grid.Column="0"
                                Grid.ColumnSpan="2"
                                IsVisibleDebug="{Binding IsDebugMode}" />
-    </Grid>
+    </custom:CustomGrid>
 </ContentPage>

@@ -1,215 +1,359 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ProjectTSSI.Handlers.Windows"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:local="clr-namespace:ProjectTSSI"
              x:Class="ProjectTSSI.RegisterWS"
              NavigationPage.HasNavigationBar="False">
     <!-- Grid Principal -->
-    <Grid x:Name="PrincipalGrid" RowSpacing="0" Padding="50" BackgroundColor="#e6e2fd">
+    <custom:CustomGrid x:Name="PrincipalGrid"
+                       AutomationId="principal_grid_register"
+                       ResponsiveConfig="{custom:CustomConfigBinding Key=principal_grid_register_ResponsiveConfig}"
+                       GridResponsiveConfig="{custom:CustomConfigBinding Key=principal_grid_register_GridResponsiveConfig}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-
         <!-- Contenedor AbsoluteLayout para círculos -->
-        <AbsoluteLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 
-                        AbsoluteLayout.LayoutBounds="0,0,1,1" 
-                        AbsoluteLayout.LayoutFlags="All">
-
+        <custom:CustomAbsoluteLayout Grid.Column="0"
+                                     AutomationId="absolute_layout_circles_register"
+                                     x:Name="absoluteLayoutCircles"
+                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_circles_register_ResponsiveConfig}"
+                                     Grid.Row="0"
+                                     Grid.ColumnSpan="2"
+                                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                     AbsoluteLayout.LayoutFlags="All">
             <!-- Círculo Posicionado Libremente -->
-            <Frame CornerRadius="50" WidthRequest="75" HeightRequest="75"
-                   AbsoluteLayout.LayoutBounds="-.040,-.105,100,100" 
-                   AbsoluteLayout.LayoutFlags="PositionProportional" 
-                   ZIndex="0">
-                <Frame.Background>
+            <custom:CustomFrame AutomationId="circle_frame_register"
+                                ResponsiveConfig="{custom:CustomConfigBinding Key=circle_frame_register_ResponsiveConfig}"
+                                FrameResponsiveConfig="{custom:CustomConfigBinding Key=circle_frame_register_FrameResponsiveConfig}"
+                                AbsoluteLayout.LayoutBounds="-.042,-.075,-1,-1"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                ZIndex="0">
+                <custom:CustomFrame.Background>
                     <RadialGradientBrush Radius="0.8">
                         <RadialGradientBrush.Center>
-                            <Point X="0.7" Y="0" />
+                            <Point X="0.7"
+                                   Y="0" />
                         </RadialGradientBrush.Center>
-                        <GradientStop Color="#9988f3" Offset="0" /> 
-                        <GradientStop Color="#6852d8" Offset="1.0" /> 
+                        <GradientStop Color="#9988f3"
+                                      Offset="0" />
+                        <GradientStop Color="#6852d8"
+                                      Offset="1.0" />
                     </RadialGradientBrush>
-                </Frame.Background>
-            </Frame>
-
-            <Border Stroke="White" StrokeThickness="2" BackgroundColor="White"
-                AbsoluteLayout.LayoutBounds="1.032,1.06,80,80" 
-                AbsoluteLayout.LayoutFlags="PositionProportional"
-                WidthRequest="80" HeightRequest="80">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="50" />
-            </Border.StrokeShape>
-            </Border>
-             <!-- StackLayout 1 -->
-            <Border x:Name="BorderLayoutRegisterPart1" Stroke="Transparent" StrokeThickness="0" BackgroundColor="#6852d8" 
-                    AbsoluteLayout.LayoutBounds="0,0,0.5,1" 
-                    AbsoluteLayout.LayoutFlags="All" ZIndex="1">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="18,0,18,0" />
-                </Border.StrokeShape>
-                <Border.Shadow>
-                    <Shadow Brush="#6f60bb" Opacity="0.7" Offset="7,3" Radius="15" />
-                </Border.Shadow>
-                <StackLayout x:Name="RegisterFadeOutPart1" Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                    <StackLayout.Background>
+                </custom:CustomFrame.Background>
+            </custom:CustomFrame>
+            <custom:CustomBorder AutomationId="circle_border_register"
+                                 ResponsiveConfig="{custom:CustomConfigBinding Key=circle_border_register_ResponsiveConfig}"
+                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=circle_border_register_BorderResponsiveConfig}"
+                                 ZIndex="0"
+                                 AbsoluteLayout.LayoutBounds="1.04,1.05,-1,-1"
+                                 AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <!-- StackLayout 1 -->
+            <custom:CustomBorder x:Name="BorderLayoutRegisterPart1"
+                                 AutomationId="border_register_part1"
+                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_register_part1_ResponsiveConfig}"
+                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_register_part1_BorderResponsiveConfig}"
+                                 AbsoluteLayout.LayoutBounds="0,0,0.5,1"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 ZIndex="1">
+                <custom:CustomStackLayout x:Name="RegisterFadeOutPart1"
+                                          VerticalOptions="Fill"
+                                          HorizontalOptions="Fill">
+                    <custom:CustomStackLayout.Background>
                         <RadialGradientBrush>
                             <RadialGradientBrush.Center>
-                                <Point X="0.9" Y="0.0" /> 
+                                <Point X="0.9"
+                                       Y="0.0" />
                             </RadialGradientBrush.Center>
-                            <GradientStop Color="#8472e5" Offset="0" /> 
-                            <GradientStop Color="#6852d8" Offset="1.0" /> 
+                            <GradientStop Color="#8472e5"
+                                          Offset="0" />
+                            <GradientStop Color="#6852d8"
+                                          Offset="1.0" />
                         </RadialGradientBrush>
-                    </StackLayout.Background>
-                    <!-- Segundo StackLayout centrado y expandido -->
-                    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Image Source="second_background_login.png" 
-                        Opacity="0.5" 
-                        Aspect="AspectFill" 
-                        HorizontalOptions="FillAndExpand" 
-                        VerticalOptions="FillAndExpand"
-                        ZIndex="0" />
-                        <!-- Frame que permanecerá centrado -->
-                        <Frame x:Name="StackRegisterPart1" 
-                            CornerRadius="20" 
-                            BackgroundColor="#10FFFFFF" 
-                            BorderColor="White" 
-                            HeightRequest="350" 
-                            WidthRequest="280"
-                            HorizontalOptions="CenterAndExpand"
-                            VerticalOptions="CenterAndExpand" />
-
-                        <!-- AbsoluteLayout que permite que la imagen se superponga al Frame Primera(130, -23, 280, 350) Segunda(20, -23, 280, 350) Tercera(Height="355",Width="340",0, -6, 280, 350)-->
-                        <AbsoluteLayout x:Name="StackRegisterPart2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                            <Image x:Name="animationImagesRegister"
-                                HeightRequest="350"
-                                WidthRequest="280"
-                                Aspect="AspectFill"
-                                Source="login_image_one.png"
-                                AbsoluteLayout.LayoutBounds="130, -23, 280, 350"
-                                AbsoluteLayout.LayoutFlags="None" />
-                                
-                        </AbsoluteLayout>
-                    </Grid>
-                    
-                </StackLayout>
-            </Border>
+                    </custom:CustomStackLayout.Background>
+                    <custom:CustomGrid HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand">
+                        <custom:CustomImage AutomationId="image_register_background"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_background_ResponsiveConfig}"
+                                            ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_background_ImageResponsiveConfig}"
+                                            Source="second_background_login.png"
+                                            Opacity="0.5"
+                                            Aspect="AspectFill"
+                                            HorizontalOptions="Fill"
+                                            VerticalOptions="Fill"
+                                            ZIndex="0" />
+                        <custom:CustomFrame x:Name="StackRegisterPart1"
+                                            AutomationId="frame_register_part1"
+                                            ResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_part1_ResponsiveConfig}"
+                                            FrameResponsiveConfig="{custom:CustomConfigBinding Key=frame_register_part1_FrameResponsiveConfig}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand" />
+                        <custom:CustomAbsoluteLayout x:Name="StackRegisterPart2"
+                                                     AutomationId="absolute_layout_register_part2"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_register_part2_ResponsiveConfig}"
+                                                     HorizontalOptions="Fill"
+                                                     VerticalOptions="Fill">
+                            <custom:CustomImage x:Name="animationImagesRegister"
+                                                AutomationId="image_register_animation"
+                                                ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_animation_ResponsiveConfig}"
+                                                ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_animation_ImageResponsiveConfig}"
+                                                Aspect="AspectFill"
+                                                Source="login_image_one.png"
+                                                AbsoluteLayout.LayoutBounds="0.45,0.498, -1,-1"
+                                                AbsoluteLayout.LayoutFlags="PositionProportional" />
+                        </custom:CustomAbsoluteLayout>
+                    </custom:CustomGrid>
+                </custom:CustomStackLayout>
+            </custom:CustomBorder>
             <!-- StackLayout 2 -->
-            <Border x:Name="BorderLayoutRegisterPart2" Stroke="Transparent" StrokeThickness="0" BackgroundColor="White" 
-                    AbsoluteLayout.LayoutBounds="1,0,0.5,1" 
-                    AbsoluteLayout.LayoutFlags="All" ZIndex="2">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="0,18,0,18" />
-                </Border.StrokeShape>
-                <Border.Shadow>
-                    <Shadow Brush="#6f60bb" Opacity="0.5" Offset="5,3" Radius="15" />
-                </Border.Shadow>
-                <StackLayout x:Name="RegisterFadeOutPart2" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                    <Grid HorizontalOptions="FillAndExpand" HeightRequest="60" BackgroundColor="Black">
+            <custom:CustomBorder x:Name="BorderLayoutRegisterPart2"
+                                 AutomationId="border_register_part2"
+                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_register_part2_ResponsiveConfig}"
+                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_register_part2_BorderResponsiveConfig}"
+                                 AbsoluteLayout.LayoutBounds="1,0,0.5004,1"
+                                 AbsoluteLayout.LayoutFlags="All"
+                                 ZIndex="2">
+                <custom:CustomStackLayout x:Name="RegisterFadeOutPart2"
+                                          AutomationId="stack_register_part2"
+                                          ResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_part2_ResponsiveConfig}"
+                                          StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_part2_StackLayoutResponsiveConfig}"
+                                          VerticalOptions="Fill"
+                                          HorizontalOptions="Fill">
+                    <custom:CustomGrid AutomationId="grid_register_steps"
+                                       ResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_steps_ResponsiveConfig}"
+                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_steps_GridResponsiveConfig}"
+                                       HorizontalOptions="Fill">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.40*" />
-                            <ColumnDefinition Width="0.40*" />
-                            <ColumnDefinition Width="0.20*" />
+                            <ColumnDefinition Width="0.4*" />
+                            <ColumnDefinition Width="0.4*" />
+                            <ColumnDefinition Width="0.2*" />
                         </Grid.ColumnDefinitions>
-
-                        <AbsoluteLayout x:Name="RegisterStepTop1" Grid.Column="0" BackgroundColor="#edeffe">
-                        <Border x:Name="RegisterStepTopBorder1" Stroke="Transparent" StrokeThickness="0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                            <Border.Background> 
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1"> 
-                                    <GradientStop Color="#a1a6ff" Offset="0.0"/>
-                                    <GradientStop Color="#8589ea" Offset="1.0" /> 
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="0,40,0,40" />
-                            </Border.StrokeShape>
-                            <AbsoluteLayout>
-                                <Image x:Name="RegisterStepTopImage1" Source="icon_register_one_first.png" HeightRequest="20" WidthRequest="20" AbsoluteLayout.LayoutBounds="0.13, 0.47, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                                <Label x:Name="RegisterStepTopLabel1" Text="Informacion Personal" Style="{StaticResource StepsRegisterLabel}" TextColor="White" AbsoluteLayout.LayoutBounds="0.65, 0.47, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                            </AbsoluteLayout>
-                            
-                        </Border>
-                        </AbsoluteLayout>
-                        
-                        <AbsoluteLayout x:Name="RegisterStepTop2" Grid.Column="1" BackgroundColor="#edeffe">
-                        <Border x:Name="RegisterStepTopBorder2" Stroke="Transparent" StrokeThickness="0" BackgroundColor="#edeffe" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="0,40,0,40" />
-                            </Border.StrokeShape>
-                            <AbsoluteLayout>
-                                <Image x:Name="RegisterStepTopImage2" Source="icon_register_two_second.png" HeightRequest="20" WidthRequest="20" AbsoluteLayout.LayoutBounds="0.06, 0.47, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                                <Label x:Name="RegisterStepTopLabel2" Text="Informacion De Contacto" Style="{StaticResource StepsRegisterLabel}" AbsoluteLayout.LayoutBounds="0.68, 0.47, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                            </AbsoluteLayout>
-                        </Border>
-                        </AbsoluteLayout>
-                        
-                        <AbsoluteLayout x:Name="RegisterStepTop3" Grid.Column="2" BackgroundColor="#edeffe">
-                        <Border x:Name="RegisterStepTopBorder3" Stroke="Transparent" StrokeThickness="0" BackgroundColor="#edeffe" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="0,0,0,0" />
-                            </Border.StrokeShape>
-                            <AbsoluteLayout>
-                                <Image x:Name="RegisterStepTopImage3" Source="icon_register_three_second.png" HeightRequest="20" WidthRequest="20" AbsoluteLayout.LayoutBounds="0.55, 0.25, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                                <Label x:Name="RegisterStepTopLabel3" Text="Finalizacion" Style="{StaticResource StepsRegisterLabel}" AbsoluteLayout.LayoutBounds="0.75, 0.8, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" />
-                            </AbsoluteLayout>
-                        </Border>
-                        </AbsoluteLayout>
-
-                    </Grid>
-                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <StackLayout x:Name="RegisterForm">
-                        
-                        </StackLayout>
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+                        <custom:CustomAbsoluteLayout x:Name="RegisterStepTop1"
+                                                     AutomationId="absolute_layout_register_step1"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_register_step1_ResponsiveConfig}"
+                                                     Grid.Column="0">
+                            <custom:CustomBorder x:Name="RegisterStepTopBorder1"
+                                                 AutomationId="border_register_step1"
+                                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_register_step1_ResponsiveConfig}"
+                                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_register_step1_BorderResponsiveConfig}"
+                                                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                 AbsoluteLayout.LayoutFlags="All">
+                                <custom:CustomBorder.Background>
+                                    <LinearGradientBrush StartPoint="0,0"
+                                                         EndPoint="1,1">
+                                        <GradientStop Color="#a1a6ff"
+                                                      Offset="0.0" />
+                                        <GradientStop Color="#8589ea"
+                                                      Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </custom:CustomBorder.Background>
+                                <custom:CustomAbsoluteLayout AutomationId="absolute_layout_step1_inner"
+                                                             ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_step1_inner_ResponsiveConfig}">
+                                    <custom:CustomImage x:Name="RegisterStepTopImage1"
+                                                        AutomationId="image_register_step1"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_step1_ResponsiveConfig}"
+                                                        ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_step1_ImageResponsiveConfig}"
+                                                        Source="icon_register_one_first.png"
+                                                        AbsoluteLayout.LayoutBounds="0.1, 0.47, -1, -1"
+                                                        AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                    <custom:CustomLabel x:Name="RegisterStepTopLabel1"
+                                                        AutomationId="label_register_step1"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=label_register_step1_ResponsiveConfig}"
+                                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_register_step1_LabelResponsiveConfig}"
+                                                        Text="Informacion Personal"
+                                                        Style="{StaticResource StepsRegisterLabel}"
+                                                        AbsoluteLayout.LayoutBounds="0.48, 0.49, -1, -1"
+                                                        AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                </custom:CustomAbsoluteLayout>
+                            </custom:CustomBorder>
+                        </custom:CustomAbsoluteLayout>
+                        <custom:CustomAbsoluteLayout x:Name="RegisterStepTop2"
+                                                     AutomationId="absolute_layout_register_step2"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_register_step1_ResponsiveConfig}"
+                                                     Grid.Column="1"
+                                                     BackgroundColor="#edeffe">
+                            <custom:CustomBorder x:Name="RegisterStepTopBorder2"
+                                                 AutomationId="border_register_step2"
+                                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_register_step1_ResponsiveConfig}"
+                                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_register_step1_BorderResponsiveConfig}"
+                                                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                 AbsoluteLayout.LayoutFlags="All">
+                                <custom:CustomAbsoluteLayout AutomationId="absolute_layout_step2_inner"
+                                                             ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_step1_inner_ResponsiveConfig}">
+                                    <custom:CustomImage x:Name="RegisterStepTopImage2"
+                                                        AutomationId="image_register_step2"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_step1_ResponsiveConfig}"
+                                                        ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_step1_ImageResponsiveConfig}"
+                                                        Source="icon_register_two_second.png"
+                                                        AbsoluteLayout.LayoutBounds="0.02, 0.47, -1, -1"
+                                                        AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                    <custom:CustomLabel x:Name="RegisterStepTopLabel2"
+                                                        AutomationId="label_register_step2"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=label_register_step1_ResponsiveConfig}"
+                                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_register_step2_LabelResponsiveConfig}"
+                                                        Text="Informacion De Contacto"
+                                                        Style="{StaticResource StepsRegisterLabel}"
+                                                        AbsoluteLayout.LayoutBounds="0.43, 0.49, -1, -1"
+                                                        AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                </custom:CustomAbsoluteLayout>
+                            </custom:CustomBorder>
+                        </custom:CustomAbsoluteLayout>
+                        <custom:CustomAbsoluteLayout x:Name="RegisterStepTop3"
+                                                     AutomationId="absolute_layout_register_step3"
+                                                     ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_register_step1_ResponsiveConfig}"
+                                                     Grid.Column="2"
+                                                     BackgroundColor="#edeffe">
+                            <custom:CustomBorder x:Name="RegisterStepTopBorder3"
+                                                 AutomationId="border_register_step3"
+                                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_register_step1_ResponsiveConfig}"
+                                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_register_step1_BorderResponsiveConfig}"
+                                                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                 AbsoluteLayout.LayoutFlags="All">
+                                <custom:CustomAbsoluteLayout AutomationId="absolute_layout_step3_inner"
+                                                             ResponsiveConfig="{custom:CustomConfigBinding Key=absolute_layout_step1_inner_ResponsiveConfig}">
+                                    <custom:CustomImage x:Name="RegisterStepTopImage3"
+                                                        AutomationId="image_register_step3"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=image_register_step1_ResponsiveConfig}"
+                                                        ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_register_step1_ImageResponsiveConfig}"
+                                                        Source="icon_register_three_second.png"
+                                                        AbsoluteLayout.LayoutBounds="0.25, 0.12, -1, -1"
+                                                        AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                    <custom:CustomLabel x:Name="RegisterStepTopLabel3"
+                                                        AutomationId="label_register_step3"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=label_register_step1_ResponsiveConfig}"
+                                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_register_step2_LabelResponsiveConfig}"
+                                                        Text="Finalizacion"
+                                                        Style="{StaticResource StepsRegisterLabel}"
+                                                        AbsoluteLayout.LayoutBounds="0, 0.8, -1, -1"
+                                                        AbsoluteLayout.LayoutFlags="PositionProportional" />
+                                </custom:CustomAbsoluteLayout>
+                            </custom:CustomBorder>
+                        </custom:CustomAbsoluteLayout>
+                    </custom:CustomGrid>
+                    <custom:CustomStackLayout x:Name="RegisterStepLayout"
+                                              AutomationId="stack_register_step"
+                                              ResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_step_ResponsiveConfig}"
+                                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_step_StackLayoutResponsiveConfig}">
+                        <ContentView x:Name="StepRegisterNow"
+                                     Padding="0" />
+                    </custom:CustomStackLayout>
+                    <custom:CustomStackLayout x:Name="RegisterForm"
+                                              AutomationId="stack_register_form"
+                                              ResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_form_ResponsiveConfig}"
+                                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_form_StackLayoutResponsiveConfig}"
+                                              HorizontalOptions="Fill"
+                                              VerticalOptions="Fill" />
+                    <custom:CustomGrid AutomationId="grid_register_buttons"
+                                       ResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_buttons_ResponsiveConfig}"
+                                       GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_register_buttons_GridResponsiveConfig}"
+                                       HorizontalOptions="Fill"
+                                       VerticalOptions="Fill">
                         <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.5*" /> <!-- 50% del ancho -->
-                                <ColumnDefinition Width="0.5*" /> <!-- 50% del ancho -->
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.5*" />
                         </Grid.ColumnDefinitions>
-                        <StackLayout  Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End">
-                            <Border x:Name="BorderButtonBack" HeightRequest="35" WidthRequest="130" StrokeShape="RoundRectangle 3" StrokeThickness="0">
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnBackStep" /> 
-                                </Border.GestureRecognizers>
-                                <Border.Content>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0.2*" /> <!-- 20% del ancho -->
-                                            <ColumnDefinition Width="0.8*" /> <!-- 80% del ancho -->
-                                        </Grid.ColumnDefinitions>
-                                        <Image x:Name="ImageButtonBack" Source="back_icon_color.png" Grid.Column="0" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center" />
-                                        <!-- Salir Del Registro (Sin Fondo y BackToLoginTextButton) -->
-                                        <!-- Regresar  Paso (Sin Fondo y BackToStepTextButton) -->
-                                        <Label x:Name="LabelButtonBack" Text="Salir Del Registro" Grid.Column="1" Style="{StaticResource BackToLoginTextButton}" />
-                                    </Grid>
-                                </Border.Content>
-                            </Border>
-                        </StackLayout>
-                        <StackLayout  Grid.Column="1" HorizontalOptions="End" VerticalOptions="End">
-                            <Border x:Name="BorderButtonNext" HeightRequest="35" WidthRequest="130" BackgroundColor="#8589ea" StrokeShape="RoundRectangle 3" StrokeThickness="0">
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnNextStep" /> 
-                                </Border.GestureRecognizers>
-                                <Border.Content>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="0.8*" /> <!-- 80% del ancho -->
-                                            <ColumnDefinition Width="0.2*" /> <!-- 20% del ancho -->
-                                        </Grid.ColumnDefinitions>
-                                        <!-- Finalizar Registro (Sin Fondo y BackToLoginTextButton) -->
-                                        <!-- Siguiente  Paso (Sin Fondo y BackToStepTextButton) -->
-                                        <Label x:Name="LabelButtonNext" Text="Siguiente  Paso" Grid.Column="0" Style="{StaticResource BackToStepTextButton}" />
-                                        <Image x:Name="ImageButtonNext" Source="next_icon_white.png" Grid.Column="1" HeightRequest="15" WidthRequest="15" HorizontalOptions="Center" VerticalOptions="Center" />
-                                    </Grid>
-                                </Border.Content>
-                            </Border>
-                        </StackLayout>
-                    </Grid>
-                    </StackLayout>
-                </StackLayout>
-            </Border>
-        </AbsoluteLayout>
-        <AbsoluteLayout x:Name = "LoaderPrincipalPage" Grid.Column="0" Grid.ColumnSpan="2" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" IsVisible="False">
-        
-        </AbsoluteLayout>
-    </Grid>
+                        <custom:CustomStackLayout Grid.Column="0"
+                                                  HorizontalOptions="Start"
+                                                  VerticalOptions="End">
+                            <custom:CustomBorder x:Name="BorderButtonBack"
+                                                 AutomationId="border_button_back"
+                                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_button_back_ResponsiveConfig}"
+                                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_button_back_BorderResponsiveConfig}">
+                                <custom:CustomGrid AutomationId="grid_button_back"
+                                                   ResponsiveConfig="{custom:CustomConfigBinding Key=grid_button_back_ResponsiveConfig}"
+                                                   GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_button_back_GridResponsiveConfig}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*" />
+                                        <ColumnDefinition Width="0.8*" />
+                                    </Grid.ColumnDefinitions>
+                                    <custom:CustomImage x:Name="ImageButtonBack"
+                                                        AutomationId="image_button_back"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=image_button_back_ResponsiveConfig}"
+                                                        ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_button_back_ImageResponsiveConfig}"
+                                                        Source="back_icon_color.png"
+                                                        Grid.Column="0"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickStep" />
+                                        </Image.GestureRecognizers>
+                                    </custom:CustomImage>
+                                    <custom:CustomLabel x:Name="LabelButtonBack"
+                                                        AutomationId="label_button_back"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=label_button_back_ResponsiveConfig}"
+                                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_button_back_LabelResponsiveConfig}"
+                                                        Text="Salir Del Registro"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        Grid.Column="1"
+                                                        Style="{StaticResource BackToLoginTextButton}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickStep" />
+                                        </Label.GestureRecognizers>
+                                    </custom:CustomLabel>
+                                </custom:CustomGrid>
+                            </custom:CustomBorder>
+                        </custom:CustomStackLayout>
+                        <custom:CustomStackLayout Grid.Column="1"
+                                                  HorizontalOptions="End"
+                                                  VerticalOptions="End">
+                            <custom:CustomBorder x:Name="BorderButtonNext"
+                                                 AutomationId="border_button_next"
+                                                 ResponsiveConfig="{custom:CustomConfigBinding Key=border_button_next_ResponsiveConfig}"
+                                                 BorderResponsiveConfig="{custom:CustomConfigBinding Key=border_button_next_BorderResponsiveConfig}">
+                                <custom:CustomGrid AutomationId="grid_button_next"
+                                                   ResponsiveConfig="{custom:CustomConfigBinding Key=grid_button_next_ResponsiveConfig}"
+                                                   GridResponsiveConfig="{custom:CustomConfigBinding Key=grid_button_next_GridResponsiveConfig}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.8*" />
+                                        <ColumnDefinition Width="0.2*" />
+                                    </Grid.ColumnDefinitions>
+                                    <custom:CustomLabel x:Name="LabelButtonNext"
+                                                        AutomationId="label_button_next"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=label_button_next_ResponsiveConfig}"
+                                                        LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_button_next_LabelResponsiveConfig}"
+                                                        Text="Siguiente  Paso"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        Grid.Column="0"
+                                                        Style="{StaticResource BackToStepTextButton}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickStep" />
+                                        </Label.GestureRecognizers>
+                                    </custom:CustomLabel>
+                                    <custom:CustomImage x:Name="ImageButtonNext"
+                                                        AutomationId="image_button_next"
+                                                        ResponsiveConfig="{custom:CustomConfigBinding Key=image_button_next_ResponsiveConfig}"
+                                                        ImageResponsiveConfig="{custom:CustomConfigBinding Key=image_button_next_ImageResponsiveConfig}"
+                                                        Source="next_icon_white.png"
+                                                        Grid.Column="1"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickStep" />
+                                        </Image.GestureRecognizers>
+                                    </custom:CustomImage>
+                                </custom:CustomGrid>
+                            </custom:CustomBorder>
+                        </custom:CustomStackLayout>
+                    </custom:CustomGrid>
+                </custom:CustomStackLayout>
+            </custom:CustomBorder>
+        </custom:CustomAbsoluteLayout>
+        <custom:CustomAbsoluteLayout x:Name="LoaderPrincipalPage"
+                                     AutomationId="loader_principal_page_register"
+                                     ResponsiveConfig="{custom:CustomConfigBinding Key=loader_principal_page_register_ResponsiveConfig}"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="2"
+                                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                     AbsoluteLayout.LayoutFlags="All"
+                                     IsVisible="False" />
+        <custom:DebugInspector Grid.Row="0"
+                               VerticalOptions="Start"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               IsVisibleDebug="{Binding IsDebugMode}" />
+    </custom:CustomGrid>
 </ContentPage>

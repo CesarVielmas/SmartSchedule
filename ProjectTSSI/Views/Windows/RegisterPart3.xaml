@@ -1,7 +1,30 @@
-<StackLayout    Padding="70"
-                xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-            <Label Text="Finalizar Registro" Style="{StaticResource SubttitleLogin}" TextColor="#979eb3" Margin="0,15,0,0" />
-            <Label x:Name = "FinalLabelName" Text="BIENVENIDO CESAR" Style="{StaticResource TittleLogin}" TextColor="#707789" Margin="0,10,0,10" />
-            <Label Text="Ya puede finalizar su registro exitosamente , solo asegurese de que los datos que proporciono sean los correctos y no olvide seguirlos, es un gusto para nosotros que forme parte de SmartScheduler"  Style="{StaticResource SubttitleLogin}" Margin="20" Padding="0,0,0,0" />
-</StackLayout>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ProjectTSSI.Handlers.Windows"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:ProjectTSSI"
+             x:Class="ProjectTSSI.RegisterPart3"
+             NavigationPage.HasNavigationBar="False">
+    <custom:CustomStackLayout AutomationId="stack_register_form"
+                              x:Name="registerStackPrincipal"
+                              ResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_form_ResponsiveConfig}"
+                              StackLayoutResponsiveConfig="{custom:CustomConfigBinding Key=stack_register_form_StackLayoutResponsiveConfig}">
+        <custom:CustomLabel AutomationId="label_step_title"
+                            Text="Finalizar Registro"
+                            Style="{StaticResource SubttitleLogin}"
+                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_step_title_final_ResponsiveConfig}"
+                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_step_title_final_LabelResponsiveConfig}"
+                            HorizontalOptions="Fill" />
+        <custom:CustomLabel AutomationId="label_personal_info_title"
+                            Text="BIENVENIDO CESAR"
+                            Style="{StaticResource TittleLogin}"
+                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_personal_info_title_final_ResponsiveConfig}"
+                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_personal_info_title_final_LabelResponsiveConfig}" />
+        <custom:CustomLabel AutomationId="label_description"
+                            Text="Ya puede finalizar su registro exitosamente , solo asegurese de que los datos que proporciono sean los correctos y no olvide seguirlos, es un gusto para nosotros que forme parte de SmartScheduler"
+                            ResponsiveConfig="{custom:CustomConfigBinding Key=label_description_final_ResponsiveConfig}"
+                            LabelResponsiveConfig="{custom:CustomConfigBinding Key=label_description_final_LabelResponsiveConfig}"
+                            Style="{StaticResource SubttitleLogin}"
+                            HorizontalOptions="Fill" />
+    </custom:CustomStackLayout>
+</ContentView>

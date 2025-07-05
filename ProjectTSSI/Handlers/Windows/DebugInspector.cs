@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProjectTSSI.Handlers.Windows;
 
-public class DebugInspector : AbsoluteLayout
+public class DebugInspector : AbsoluteLayout, IDisposable
 {
+    private static readonly Dictionary<Type, PropertyInfo[]> _propertyCache = new();
     private Dictionary<Label, Entry> _propertysCustomComponent;
     private Grid _gridObject;
     private Grid _gridProperties;
@@ -40,6 +41,15 @@ public class DebugInspector : AbsoluteLayout
     private static async void OnVisibleConfigChanged(BindableObject bindable, object oldValue, object newValue)
     {
         var control = (DebugInspector)bindable;
+        control._propertysCustomComponent.Clear();
+        Logger.Log("====== ESTADO DE VARIABLES ======");
+        Logger.Log($"_propertysCustomComponent.Count: {control._propertysCustomComponent?.Count ?? 0}");
+        Logger.Log($"_gridObject.Children.Count: {control._gridObject?.Children?.Count ?? 0}");
+        Logger.Log($"_gridProperties.Children.Count: {control._gridProperties?.Children?.Count ?? 0}");
+        Logger.Log($"_actualObjectComponent != null: {control._actualObjectComponent != null}");
+        Logger.Log($"_actualObjectIndex: {control._actualObjectIndex}");
+        Logger.Log($"_cuantityObjects: {control._cuantityObjects}");
+        Logger.Log("==================================");
         if (newValue is bool isVisible)
         {
             control.IsVisible = isVisible;
@@ -84,6 +94,7 @@ public class DebugInspector : AbsoluteLayout
     {
         if (completeCustomComponent == null || completeCustomComponent.Count == 0)
             return;
+        _propertysCustomComponent.Clear();
         this.Children.Clear();
         this.HeightRequest = (GlobalConstants.ScreenHeight * 0.03) / GlobalConstants.ScreenDensity;
         Label tittleCustomComponent = new Label
@@ -176,7 +187,7 @@ public class DebugInspector : AbsoluteLayout
         await GlobalMethods.AnimateTextByWord(objectTittle, _actualObjectComponent.GetType().Name, (int)(2000 / _actualObjectComponent.GetType().Name.Length));
         GlobalMethods.AnimateMoveAbsoluteElementY(_gridObject, "", 0.35, 1500);
         int indexGrid = 0;
-        int totalProperties = _actualObjectComponent.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)
+        int totalProperties = GetCachedProperties(_actualObjectComponent.GetType())
             .Count(p => p.CanRead && p.CanWrite);
         int rowsNeeded = (int)Math.Ceiling(totalProperties / 4.0);
         this.AbortAnimation("HeightAnimation");
@@ -206,10 +217,8 @@ public class DebugInspector : AbsoluteLayout
             _gridProperties.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
         for (int i = 0; i < 4; i++)
             _gridProperties.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-        foreach (var property in _actualObjectComponent.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+        foreach (var property in GetCachedProperties(_actualObjectComponent.GetType()))
         {
-            if (!property.CanRead || !property.CanWrite)
-                continue;
             int col = indexGrid % 4;
             int row = indexGrid / 4;
             var container = new StackLayout
@@ -283,7 +292,7 @@ public class DebugInspector : AbsoluteLayout
         {
             _actualObjectIndex -= 1;
             _actualObjectComponent = GlobalConstants.CustomComponent[_actualObjectIndex];
-            _propertysCustomComponent = new Dictionary<Label, Entry>();
+            _propertysCustomComponent.Clear();
             this.Children.Remove(_gridObject);
             this.Children.Remove(_gridProperties);
             await GenerateBindableCustomComponent((byte)(_actualObjectIndex == 1 ? 1 : 0));
@@ -295,10 +304,64 @@ public class DebugInspector : AbsoluteLayout
         {
             _actualObjectIndex += 1;
             _actualObjectComponent = GlobalConstants.CustomComponent[_actualObjectIndex];
-            _propertysCustomComponent = new Dictionary<Label, Entry>();
+            _propertysCustomComponent.Clear();
             this.Children.Remove(_gridObject);
             this.Children.Remove(_gridProperties);
             await GenerateBindableCustomComponent((byte)(_actualObjectIndex == _cuantityObjects - 1 ? 2 : 0));
         }
     }
+    private PropertyInfo[] GetCachedProperties(Type type)
+    {
+        if (_propertyCache.TryGetValue(type, out var props))
+            return props;
+
+        props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                    .Where(p => p.CanRead && p.CanWrite)
+                    .ToArray();
+
+        _propertyCache[type] = props;
+        return props;
+    }
+    public void Dispose()
+    {
+        foreach (var entry in _propertysCustomComponent.Values)
+            entry.AbortAnimation("FadeInEntry_" + entry.GetHashCode());
+
+        foreach (var label in _propertysCustomComponent.Keys)
+            label.AbortAnimation("LabelTextAnim_" + label.GetHashCode());
+
+        foreach (var kv in _propertysCustomComponent)
+        {
+            kv.Key.AbortAnimation("ScaleBounce");
+            kv.Key.Text = null;
+            kv.Value.Text = null;
+            kv.Value.BindingContext = null;
+            kv.Value.RemoveBinding(Entry.TextProperty);
+        }
+
+        _propertysCustomComponent.Clear();
+        if (_gridObject != null)
+        {
+            foreach (var child in _gridObject.Children)
+            {
+                if (child is View view)
+                    view.GestureRecognizers.Clear();
+            }
+
+            _gridObject.Children.Clear();
+            _gridObject = null;
+        }
+        if (_gridProperties != null)
+        {
+            _gridProperties.Children.Clear();
+            _gridProperties.RowDefinitions.Clear();
+            _gridProperties.ColumnDefinitions.Clear();
+            _gridProperties = null;
+        }
+        this.Children.Clear();
+        _actualObjectComponent = null;
+        GlobalConstants.DebugInspector = null;
+        GC.Collect();
+    }
+
 }

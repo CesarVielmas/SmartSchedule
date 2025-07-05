@@ -10,13 +10,15 @@ namespace ProjectTSSI.Handlers.Windows;
 
 public class CustomEntry : Entry, IDisposable, ITapCustomComponent
 {
+
     public CustomEntry()
     {
-        this.Focused += (s, e) =>
-        {
-            GlobalMethods.OnGlobalTapDebug(s, e);
-            this.Focus();
-        };
+        this.Focused += OnFocused;
+    }
+    private void OnFocused(object sender, FocusEventArgs e)
+    {
+        GlobalMethods.OnGlobalTapDebug(sender, e);
+        this.Focus();
     }
     #region  Properties
     public static readonly BindableProperty ResponsiveConfigProperty =
@@ -190,6 +192,10 @@ public class CustomEntry : Entry, IDisposable, ITapCustomComponent
         {
             this.WidthRequest = (int)((GlobalConstants.ScreenWidth * ResponsiveConfig.WidthPercentage) / GlobalConstants.ScreenDensity);
             this.HeightRequest = (int)((GlobalConstants.ScreenHeight * ResponsiveConfig.HeightPercentage) / GlobalConstants.ScreenDensity);
+            if (this.WidthRequest == 0)
+                this.WidthRequest = -1;
+            if (this.HeightRequest == 0)
+                this.HeightRequest = -1;
             this.Margin = GlobalMethods.ConvertThicknessFromString(ResponsiveConfig.MarginPercentage);
             // this.Padding = GlobalMethods.ConvertThicknessFromString(ResponsiveConfig.PaddingPercentage);
             this.MinimumWidthRequest = (int)((GlobalConstants.ScreenWidth * ResponsiveConfig.MinimumWidthRequestPercentage) / GlobalConstants.ScreenDensity);
@@ -238,6 +244,7 @@ public class CustomEntry : Entry, IDisposable, ITapCustomComponent
             EntryResponsiveConfig.PropertyChanged -= OnEntryConfigPropertyChanged;
         if (LabelResponsiveConfig != null)
             LabelResponsiveConfig.PropertyChanged -= OnLabelConfigPropertyChanged;
+        this.Focused -= OnFocused;
     }
     #endregion
 }

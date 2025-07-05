@@ -1,0 +1,472 @@
+{
+  "principal_grid_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0.04,0.04,0.04,0.04",
+    "BackgroundColorView": "#e6e2fd"
+  },
+  "principal_grid_GridResponsiveConfig": {
+    "RowSpacingPercentage": 0,
+    "ColumnSpacingPercentage": 0
+  },
+  "absolute_layout_circles_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "circle_frame_1_ResponsiveConfig": {
+    "WidthPercentage": 0.047,
+    "HeightPercentage": 0.085,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "circle_frame_1_FrameResponsiveConfig": {
+    "CornerRadiusPercentage": 0.05,
+    "ShadowView": "0,1,#0e7344,(0,0)",
+    "BorderColorView": "#00FFFFFF"
+  },
+  "circle_border_1_ResponsiveConfig": {
+    "WidthPercentage": 0.047,
+    "HeightPercentage": 0.085,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "circle_border_1_BorderResponsiveConfig": {
+    "BorderRadiusPercentages": "0.05,0.05,0.05,0.05",
+    "ShadowView": "0,0,#00FFFFFF,(0,0)",
+    "StrokeThicknessPercentage": 0,
+    "StrokeColor": "#FFFFFF"
+  },
+  "border_login_part1_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "border_login_part1_BorderResponsiveConfig": {
+    "BorderRadiusPercentages": "0.0085,0,0.0085,0",
+    "ShadowView": "0,0,#000000,(0,0)",
+    "StrokeThicknessPercentage": 0,
+    "StrokeColor": "#00FFFFFF"
+  },
+  "stack_login_part1_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0.02,0.02,0.02,0.02",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "stack_login_part1_StackLayoutResponsiveConfig": {
+    "SpacingPercentage": 0
+  },
+  "label_tittle_login_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0.055,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "label_tittle_login_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.04,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0,
+    "MaxLinesView": 1,
+    "ColorTextView": "#2c3e50"
+  },
+  "label_second_tittle_login_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0.02,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.001,0,0.017",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "label_second_tittle_login_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.0135,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0,
+    "MaxLinesView": 1,
+    "ColorTextView": "#7f8c8d"
+  },
+  "grid_mail_user_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0.065,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0.022",
+    "PaddingPercentage": "0.008,0,0.008,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "grid_mail_user_GridResponsiveConfig": {
+    "RowSpacingPercentage": 0,
+    "ColumnSpacingPercentage": 0
+  },
+  "absolute_layout_error_mail_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.02,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "frame_mail_user_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#e6e2fd"
+  },
+  "frame_mail_user_FrameResponsiveConfig": {
+    "CornerRadiusPercentage": 0.015,
+    "ShadowView": "0,0,#00FFFFFF,(0,0)",
+    "BorderColorView": "#FFFFFF"
+  },
+  "entry_user_ResponsiveConfig": {
+    "WidthPercentage": 0.27,
+    "HeightPercentage": 0.02,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#e6e2fd"
+  },
+  "entry_user_EntryResponsiveConfig": {
+    "PlaceholderColorView": "#717171",
+    "BackgroundColorHolderView": "#e6e2fd"
+  },
+  "entry_user_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.013,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0,
+    "MaxLinesView": 1,
+    "ColorTextView": "#717171"
+  },
+  "absolute_layout_icon_user_ResponsiveConfig": {
+    "WidthPercentage": 0.023,
+    "HeightPercentage": 0.05,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0.015,0.01,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "image_icon_user_ResponsiveConfig": {
+    "WidthPercentage": 0.017,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.0035,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "image_icon_user_ImageResponsiveConfig": {
+    "AnchorXPercentage": 0,
+    "AnchorYPercentage": 0,
+    "ShadowView": "0,0,#00FFFFFF,(0,0)"
+  },
+  "grid_password_user_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0.065,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0.022",
+    "PaddingPercentage": "0.008,0,0.008,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "grid_password_user_GridResponsiveConfig": {
+    "RowSpacingPercentage": 0,
+    "ColumnSpacingPercentage": 0
+  },
+  "frame_password_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#e6e2fd"
+  },
+  "frame_password_FrameResponsiveConfig": {
+    "CornerRadiusPercentage": 0.015,
+    "ShadowView": "0,0,#00FFFFFF,(0,0)",
+    "BorderColorView": "#FFFFFF"
+  },
+  "stack_layout_button_login_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0.03",
+    "PaddingPercentage": "0.033,0,0.033,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "stack_layout_button_login_StackLayoutResponsiveConfig": {
+    "SpacingPercentage": 0
+  },
+  "button_login_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0.075,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#6852d8"
+  },
+  "button_login_ButtonResponsiveConfig": {
+    "BorderWidthPercentage": 0,
+    "CornerRadiusPercentage": 0.01,
+    "BorderColorView": "#00FFFFFF",
+    "BackgroundButtonColorView": "#6852d8",
+    "ShadowView": "0,0,#00FFFFFF,(0,0)"
+  },
+  "button_login_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.018,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0.001,
+    "MaxLinesView": 1,
+    "ColorTextView": "#FFFFFF"
+  },
+  "stack_layout_options_ResponsiveConfig": {
+    "WidthPercentage": 0.0001,
+    "HeightPercentage": 0.0001,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "stack_layout_options_StackLayoutResponsiveConfig": {
+    "SpacingPercentage": 1E-05
+  },
+  "box_view_divider_ResponsiveConfig": {
+    "WidthPercentage": 0.0001,
+    "HeightPercentage": 0.0001,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#b0b0b0"
+  },
+  "box_view_divider_BoxViewResponsiveConfig": {
+    "CornerRadiusPercentage": 1E-05,
+    "ColorView": "#b0b0b0",
+    "ShadowView": "0,1,#0e7344,(0,0)"
+  },
+  "label_options_login_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "label_options_login_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.0125,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0,
+    "MaxLinesView": 1,
+    "ColorTextView": "#7f8c8d"
+  },
+  "grid_social_media_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0.055,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.02,0,0.02",
+    "PaddingPercentage": "0.02,0,0.02,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "grid_social_media_GridResponsiveConfig": {
+    "RowSpacingPercentage": 0,
+    "ColumnSpacingPercentage": 0.001
+  },
+  "image_facebook_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "image_facebook_ImageResponsiveConfig": {
+    "AnchorXPercentage": 0,
+    "AnchorYPercentage": 0,
+    "ShadowView": "0,0,#0e7344,(0,0)"
+  },
+  "grid_last_options_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0.015,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "grid_last_options_GridResponsiveConfig": {
+    "RowSpacingPercentage": 0,
+    "ColumnSpacingPercentage": 0
+  },
+  "label_register_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#FFFFFF"
+  },
+  "label_register_LabelResponsiveConfig": {
+    "FontSizePercentage": 0.013,
+    "LineHeightPercentage": 0,
+    "CharacterSpacingPercentage": 0.0012,
+    "MaxLinesView": 1,
+    "ColorTextView": "#535cae"
+  },
+  "border_login_part2_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#6852d8"
+  },
+  "border_login_part2_BorderResponsiveConfig": {
+    "BorderRadiusPercentages": "0,0.0085,0,0.0085",
+    "ShadowView": "0,0,#000000,(0,0)",
+    "StrokeThicknessPercentage": 0,
+    "StrokeColor": "#00FFFFFF"
+  },
+  "frame_login_part2_ResponsiveConfig": {
+    "WidthPercentage": 0.3,
+    "HeightPercentage": 0.4,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#10FFFFFF"
+  },
+  "frame_login_part2_FrameResponsiveConfig": {
+    "CornerRadiusPercentage": 0.02,
+    "ShadowView": "0,0,#00FFFFFF,(0,0)",
+    "BorderColorView": "#FFFFFF"
+  },
+  "absolute_layout_login_part3_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "image_login_animation_ResponsiveConfig": {
+    "WidthPercentage": 0.21,
+    "HeightPercentage": 0.4,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  },
+  "image_login_animation_ImageResponsiveConfig": {
+    "AnchorXPercentage": 0,
+    "AnchorYPercentage": 0,
+    "ShadowView": "0,0,#00FFFFFF,(0,0)"
+  },
+  "loader_principal_page_ResponsiveConfig": {
+    "WidthPercentage": 0,
+    "HeightPercentage": 0,
+    "MinimumWidthRequestPercentage": 0,
+    "MinimumHeightRequestPercentage": 0,
+    "MaximumWidthRequestPercentage": 1,
+    "MaximumHeightRequestPercentage": 1,
+    "MarginPercentage": "0,0,0,0",
+    "PaddingPercentage": "0,0,0,0",
+    "BackgroundColorView": "#00FFFFFF"
+  }
+}
